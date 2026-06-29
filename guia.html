@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia técnico · Homologação de aços · Rumo</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo__interno">
+      <div class="topo__marca">
+        <img src="assets/rumo/rumo-logo-branco.png" alt="Rumo">
+        <span class="topo__divisor"></span>
+        <span class="topo__titulo">Homologação de Materiais<span>Analisador de laudos — aços</span></span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Parâmetros</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="guia.html" class="ativo">Guia técnico</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pagina">
+    <div class="cabecalho">
+      <p class="eyebrow">Referência</p>
+      <h1>Guia técnico</h1>
+      <p class="sub">Fundamentos de metalurgia e metalografia do aço-carbono que embasam a análise: o que cada ensaio mede, o que é impureza, qual microestrutura esperar e como o site decide “alto”, “baixo” ou “ok”.</p>
+    </div>
+
+    <!-- Procedimento -->
+    <section class="card">
+      <div class="card__cabeca"><h2>Como funciona a triagem</h2><p class="legenda">Fluxo de uso</p></div>
+      <div class="card__corpo">
+        <ol style="margin:0; padding-left:20px; color:var(--rumo-texto); font-size:14.5px; line-height:1.7">
+          <li>Receba o laudo do laboratório da ombreira (shoulder).</li>
+          <li>Na aba <strong>Parâmetros</strong>, lance os valores de química, metalografia, dureza, tração e impacto.</li>
+          <li>Clique em <strong>Analisar laudo</strong>: o site compara cada valor com a faixa de referência.</li>
+          <li>Na aba <strong>Resultados</strong>, leia o parecer por parâmetro e o veredito geral (conforme / ressalvas / não conforme).</li>
+          <li>Confirme contra a norma/grau específico da peça antes de homologar — esta é uma triagem, não o laudo final.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Carbono -->
+    <section class="card">
+      <div class="card__cabeca"><h2>1 · Classificação do aço pelo carbono</h2><p class="legenda">O carbono comanda dureza e resistência</p></div>
+      <div class="card__corpo">
+        <p>O teor de carbono é o que mais define as propriedades de um aço: quanto mais carbono, mais duro e resistente, porém menos dúctil e mais difícil de soldar.</p>
+        <table class="tabela">
+          <thead><tr><th>Classe</th><th>Carbono (% massa)</th><th>Comportamento</th></tr></thead>
+          <tbody>
+            <tr><td>Baixo carbono</td><td class="num">0,05 – 0,30</td><td>Dúctil e soldável, baixa dureza; difícil de endurecer por têmpera.</td></tr>
+            <tr><td>Médio carbono</td><td class="num">0,30 – 0,60</td><td>Equilíbrio entre resistência e ductilidade; responde a tratamento térmico.</td></tr>
+            <tr><td>Alto carbono</td><td class="num">0,60 – 1,40</td><td>Muito duro e resistente ao desgaste, porém frágil e de solda difícil.</td></tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">Faixas conforme Essentra Components e Metal Supermarkets (classificação por % de carbono).</p>
+      </div>
+    </section>
+
+    <!-- Elementos e impurezas -->
+    <section class="card">
+      <div class="card__cabeca"><h2>2 · Elementos químicos e impurezas</h2><p class="legenda">Quem ajuda e quem atrapalha</p></div>
+      <div class="card__corpo">
+        <p>Em aço-carbono, alguns elementos têm função (liga/controle) e outros são impurezas que fragilizam o material. Fósforo e enxofre são as impurezas clássicas — é o que o laudo precisa manter baixo.</p>
+        <table class="tabela">
+          <thead><tr><th>Elemento</th><th>Papel</th><th>Faixa típica</th><th>Tipo</th></tr></thead>
+          <tbody>
+            <tr><td>Carbono (C)</td><td>Endurecedor principal; define resistência e dureza.</td><td class="num">0,05 – 1,40 %</td><td>liga</td></tr>
+            <tr><td>Manganês (Mn)</td><td>Desoxidante; aumenta resistência e neutraliza o enxofre (forma MnS).</td><td class="num">0,30 – 1,65 %</td><td>liga</td></tr>
+            <tr><td>Silício (Si)</td><td>Desoxidante; aumenta resistência; em excesso reduz tenacidade.</td><td class="num">0,10 – 0,60 %</td><td>liga</td></tr>
+            <tr><td>Fósforo (P)</td><td>Segrega no contorno de grão e fragiliza; favorece trinca na solda.</td><td class="num imp">máx. 0,03 – 0,05 %</td><td class="imp">impureza</td></tr>
+            <tr><td>Enxofre (S)</td><td>Causa fragilidade a quente e reduz soldabilidade.</td><td class="num imp">máx. 0,05 %</td><td class="imp">impureza</td></tr>
+            <tr><td>Cr / Ni / Cu</td><td>Residuais em aço-carbono; teores altos indicam aço-liga (checar especificação).</td><td class="num">máx. ~0,30 %</td><td>residual</td></tr>
+          </tbody>
+        </table>
+        <p class="nota-fonte">Limites de P e S e papéis de Mn/Si conforme STI/SPFA, ASTM Steel (astmsteel.com) e IspatGuru. P máx. usual 0,03–0,05% (>0,04% eleva risco de trinca); S indesejável acima de 0,05%.</p>
+      </div>
+    </section>
+
+    <!-- Microestrutura -->
+    <section class="card">
+      <div class="card__cabeca"><h2>3 · Microestrutura esperada (metalografia)</h2><p class="legenda">O que a micrografia óptica deve mostrar</p></div>
+      <div class="card__corpo">
+        <p>No resfriamento lento, o aço-carbono organiza-se em <strong>ferrita</strong> (macia e dúctil), <strong>perlita</strong> (lâminas de ferrita + cementita) e, quando há carbono em excesso, <strong>cementita</strong> (dura e frágil). O ponto eutetóide fica em ≈ 0,77% C.</p>
+        <div class="faixa-visual">
+          <span class="fv-hipo">Hipoeutetóide (&lt; 0,77% C)<br>Ferrita + Perlita</span>
+          <span class="fv-eut">≈ 0,77%<br>Perlita</span>
+          <span class="fv-hiper">Hipereutetóide (&gt; 0,77% C)<br>Perlita + Cementita</span>
+        </div>
+        <p style="margin-top:14px"><strong>Sinais de alerta na micrografia:</strong></p>
+        <ul style="color:var(--rumo-texto); font-size:14px">
+          <li><strong>Rede de cementita</strong> no contorno de grão: caminho de fratura frágil — esperada só em aço hipereutetóide e indesejável em fixação estrutural.</li>
+          <li><strong>Widmanstätten</strong> / grão grosseiro: indícios de superaquecimento ou resfriamento inadequado, com perda de tenacidade.</li>
+          <li><strong>Descarbonetação</strong> superficial: camada empobrecida em carbono, reduz dureza e resistência à fadiga.</li>
+          <li><strong>Inclusões não-metálicas</strong> (sulfetos/óxidos): concentradores de tensão — avaliadas por ASTM E45.</li>
+          <li><strong>Grão</strong>: pela ASTM E112, número de grão maior = grão mais fino = melhores tenacidade e resistência.</li>
+        </ul>
+        <p class="nota-fonte">Diagrama Fe–C, ponto eutetóide ≈ 0,76–0,77% C e constituintes conforme ScienceDirect (Hypo/Eutectoid/Hypereutectoid Steel). Avaliação de inclusões por ASTM E45 e de grão por ASTM E112.</p>
+      </div>
+    </section>
+
+    <div class="guia-grade">
+      <!-- Dureza -->
+      <div class="guia-card">
+        <h3>4 · Dureza e resistência</h3>
+        <p>A dureza mede a resistência à deformação localizada e cresce com o carbono e o tratamento térmico. Para aços-carbono e baixa liga vale a aproximação:</p>
+        <p style="font-family:var(--fonte-dados); background:var(--rumo-cinza-50); padding:10px 12px; border-radius:10px; font-size:14px">σ<sub>UTS</sub> (MPa) ≈ 3,45 × HB</p>
+        <p>Ex.: 200 HB ≈ 690 MPa. O site usa essa relação para conferir se a resistência medida na tração é coerente com a dureza (desvio acima de ~15% acende um alerta).</p>
+        <p class="nota-fonte">Relação dureza→resistência conforme ASTM E140 / Machinery's Handbook (precisão ±10–15%, escalas HB, HRC, HV).</p>
+      </div>
+      <!-- Tração e impacto -->
+      <div class="guia-card">
+        <h3>5 · Tração e impacto</h3>
+        <p><strong>Ensaio de tração</strong> mede:</p>
+        <ul>
+          <li><strong>Limite de escoamento</strong>: início da deformação permanente.</li>
+          <li><strong>Limite de resistência (UTS)</strong>: tensão máxima antes de romper.</li>
+          <li><strong>Alongamento</strong> e <strong>estricção</strong>: ductilidade (quanto estica/afina antes de romper).</li>
+        </ul>
+        <p><strong>Ensaio de impacto (Charpy)</strong> mede a tenacidade — a energia (J) absorvida na fratura. Cai com grão grosseiro, impurezas e baixas temperaturas. Por isso a temperatura do ensaio é registrada junto.</p>
+      </div>
+    </div>
+
+    <!-- Calibrar -->
+    <section class="card">
+      <div class="card__cabeca"><h2>Calibrar os limites para o grau da peça</h2><p class="legenda">Como ajustar a régua da análise</p></div>
+      <div class="card__corpo">
+        <p>As faixas usadas aqui são referências gerais do aço-carbono. Quando você tiver a especificação do grau exato da ombreira (composição e propriedades exigidas), edite um único arquivo:</p>
+        <table class="tabela">
+          <thead><tr><th>No arquivo <code>js/limites.js</code></th><th>Significa</th></tr></thead>
+          <tbody>
+            <tr><td class="num">min / max</td><td>Faixa aceitável (abaixo de <code>min</code> = “abaixo”; acima de <code>max</code> = “acima”).</td></tr>
+            <tr><td class="num">limite</td><td>Teto de impureza (acima disso = “alto”).</td></tr>
+            <tr><td class="num">severidade</td><td><code>'critico'</code> reprova a triagem; <code>'observacao'</code> vira ressalva.</td></tr>
+            <tr><td class="num">opcional</td><td><code>true</code> = se o campo ficar em branco, é ignorado.</td></tr>
+          </tbody>
+        </table>
+        <p>Os campos marcados como <em>PLACEHOLDER</em> (resistência, escoamento, alongamento, impacto) são os que mais dependem do grau — troque-os pelos valores da norma assim que possível.</p>
+      </div>
+    </section>
+
+    <!-- Fontes -->
+    <section class="card">
+      <div class="card__cabeca"><h2>Fontes consultadas</h2><p class="legenda">Base das faixas de referência</p></div>
+      <div class="card__corpo">
+        <ul style="color:var(--rumo-texto); font-size:13.5px; line-height:1.7">
+          <li>Essentra Components; Metal Supermarkets; McHone Industries — classificação do aço por teor de carbono e faixas de Mn.</li>
+          <li>STI/SPFA; ASTM Steel (astmsteel.com); IspatGuru — efeito e limites de fósforo e enxofre (impurezas) e papel de Mn/Si.</li>
+          <li>ScienceDirect (Iron–Carbon / Hypo–, Eutectoid, Hypereutectoid Steel) — ponto eutetóide (≈0,77% C) e constituintes (ferrita, perlita, cementita).</li>
+          <li>ASTM E140 / Machinery's Handbook — relação dureza × resistência (UTS ≈ 3,45 × HB).</li>
+          <li>ASTM E45 (inclusões) e ASTM E112 (tamanho de grão) — critérios de avaliação micrográfica.</li>
+        </ul>
+        <p class="nota-fonte">Valores reunidos como referência geral da metalurgia do aço-carbono. Para homologação, prevalece sempre a norma/especificação do grau da ombreira.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__interno">
+      <img src="assets/rumo/rumo-logo-branco.png" alt="Rumo">
+      <p>Identidade visual conforme brand book Rumo · brandbook.rumolog.com</p>
+    </div>
+  </footer>
+</body>
+</html>

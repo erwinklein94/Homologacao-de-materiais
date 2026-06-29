@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrada de parâmetros · Homologação de aços · Rumo</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="topo__interno">
+      <div class="topo__marca">
+        <img src="assets/rumo/rumo-logo-branco.png" alt="Rumo">
+        <span class="topo__divisor"></span>
+        <span class="topo__titulo">Homologação de Materiais<span>Analisador de laudos — aços</span></span>
+      </div>
+      <nav class="nav">
+        <a href="index.html" class="ativo">Parâmetros</a>
+        <a href="resultados.html">Resultados</a>
+        <a href="guia.html">Guia técnico</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pagina">
+    <div class="cabecalho">
+      <p class="eyebrow">Etapa 1 — Registro</p>
+      <h1>Parâmetros do laudo</h1>
+      <p class="sub">Lance os valores do relatório do laboratório para a ombreira (shoulder). Campos em branco são ignorados na análise. Ao final, clique em <strong>Analisar laudo</strong>.</p>
+    </div>
+
+    <div class="aviso">
+      <span class="aviso__ico">⚠️</span>
+      <div><strong>Triagem técnica.</strong> Os limites usados são faixas de referência da metalurgia do aço-carbono, não a especificação de um grau específico de ombreira. O resultado é uma análise preliminar e não substitui o laudo de homologação nem a norma do material. Ajuste os limites em <code>js/limites.js</code> quando tiver o grau exato.</div>
+    </div>
+
+    <!-- Identificação (campos fixos) -->
+    <section class="card">
+      <div class="card__cabeca">
+        <h2>Identificação da amostra</h2>
+        <p class="legenda">Opcional — aparece no cabeçalho do parecer</p>
+      </div>
+      <div class="card__corpo">
+        <div class="grade">
+          <div class="campo"><label for="id_amostra">Amostra / lote</label>
+            <div class="campo__entrada"><input type="text" id="id_amostra" placeholder="ex.: Ombreira mod. X — lote 2451"></div></div>
+          <div class="campo"><label for="id_fornecedor">Fornecedor</label>
+            <div class="campo__entrada"><input type="text" id="id_fornecedor" placeholder="ex.: Fundição ..."></div></div>
+          <div class="campo"><label for="id_laudo">Nº do laudo / laboratório</label>
+            <div class="campo__entrada"><input type="text" id="id_laudo" placeholder="ex.: LAB-2026-0098"></div></div>
+          <div class="campo"><label for="id_data">Data do ensaio</label>
+            <div class="campo__entrada"><input type="date" id="id_data"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- As 5 seções de análise são geradas a partir de limites.js -->
+    <div id="secoes-analise"></div>
+
+    <div class="acoes">
+      <button type="button" class="btn btn--primario" id="btn-analisar">Analisar laudo →</button>
+      <button type="button" class="btn btn--secundario" id="btn-exemplo">Preencher exemplo</button>
+      <button type="button" class="btn btn--fantasma" id="btn-limpar">Limpar campos</button>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__interno">
+      <img src="assets/rumo/rumo-logo-branco.png" alt="Rumo">
+      <p>Ferramenta interna de apoio à homologação de materiais. Identidade visual conforme brand book Rumo.</p>
+    </div>
+  </footer>
+
+  <script src="js/limites.js"></script>
+  <script src="js/entrada.js"></script>
+</body>
+</html>
