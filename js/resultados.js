@@ -74,6 +74,7 @@
     if (id.fornecedor) partes.push("Fornecedor: " + id.fornecedor);
     if (id.laudo)      partes.push("Laudo: " + id.laudo);
     if (id.data)       partes.push("Data: " + id.data);
+    if (id.material)   partes.push("Material: " + id.material);
     if (!partes.length) return "";
     return '<p class="sub" style="margin:-6px 0 18px">' + partes.join(" · ") + "</p>";
   }

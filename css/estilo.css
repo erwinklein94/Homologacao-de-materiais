@@ -467,3 +467,16 @@ p { margin: 0 0 .8em; }
   .dash-selo { width: 100%; text-align: center; }
   .dash-kpis { grid-template-columns: 1fr; }
 }
+
+/* Complementos para análise de ferros fundidos */
+.subtitulo-guia {
+  margin: 22px 0 10px;
+  color: var(--azul-escuro, #003b71);
+  font-size: 1.05rem;
+}
+.guia-grade--dupla { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.mini-grid--tres { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 760px) {
+  .guia-grade--dupla,
+  .mini-grid--tres { grid-template-columns: 1fr; }
+}

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia técnico · Homologação de aços · Rumo</title>
+  <title>Guia técnico · Homologação de materiais ferrosos · Rumo</title>
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
       <div class="topo__marca">
         <img src="assets/rumo/rumo-logo-branco.png" alt="Rumo">
         <span class="topo__divisor"></span>
-        <span class="topo__titulo">Homologação de Materiais<span>Analisador de laudos — aços</span></span>
+        <span class="topo__titulo">Homologação de Materiais<span>Analisador de laudos — aços e ferros fundidos</span></span>
       </div>
       <nav class="nav">
         <a href="index.html">Parâmetros</a>
@@ -26,8 +26,8 @@
   <main class="pagina">
     <div class="cabecalho cabecalho--guia">
       <p class="eyebrow">Referência técnica</p>
-      <h1>Guia técnico para análise de relatórios laboratoriais de aços</h1>
-      <p class="sub">Material de apoio para interpretar composição química, impurezas, metalografia, dureza, tração e impacto em peças metálicas usadas na homologação de materiais ferroviários. A leitura correta não é só “passou ou reprovou”: é entender se o conjunto químico, microestrutural e mecânico é coerente com a aplicação.</p>
+      <h1>Guia técnico para análise de relatórios laboratoriais de materiais ferrosos</h1>
+      <p class="sub">Material de apoio para interpretar composição química, impurezas, metalografia, ferros fundidos, dureza, tração e impacto em peças metálicas usadas na homologação de materiais ferroviários. A leitura correta não é só “passou ou reprovou”: é entender se o conjunto químico, microestrutural e mecânico é coerente com a aplicação.</p>
     </div>
 
     <section class="painel-guia">
@@ -50,7 +50,7 @@
       <div class="card__corpo">
         <ol class="lista-tecnica">
           <li>Receba o relatório do laboratório com identificação da peça, lote, fornecedor, método de ensaio e resultados.</li>
-          <li>Na aba <strong>Parâmetros</strong>, lance os valores de composição química, metalografia, dureza, tração e impacto.</li>
+          <li>Na aba <strong>Parâmetros</strong>, lance os valores de composição química, metalografia, ferro fundido quando aplicável, dureza, tração e impacto.</li>
           <li>Clique em <strong>Analisar laudo</strong>. O site compara cada valor com a faixa cadastrada em <code>js/limites.js</code>.</li>
           <li>Na aba <strong>Resultados</strong>, leia o parecer por parâmetro e o veredito geral: conforme, com ressalvas ou não conforme.</li>
           <li>Antes de homologar, confirme se a faixa usada é a da norma, desenho, especificação Rumo ou requisito contratual aplicável ao material.</li>
@@ -61,9 +61,9 @@
 
     <!-- Carbono -->
     <section class="card">
-      <div class="card__cabeca"><h2>1 · Classificação do aço pelo carbono</h2><p class="legenda">O carbono comanda dureza, resistência, soldabilidade e tenacidade</p></div>
+      <div class="card__cabeca"><h2>1 · Classificação pelo carbono: aço × ferro fundido</h2><p class="legenda">O carbono comanda dureza, resistência, soldabilidade, tenacidade e a própria família do material</p></div>
       <div class="card__corpo">
-        <p>O teor de carbono é o principal controlador das propriedades dos aços-carbono. Em geral, quanto maior o carbono, maior a dureza, resistência e temperabilidade; em contrapartida, reduzem-se ductilidade, soldabilidade e tolerância a impacto.</p>
+        <p>O teor de carbono é o principal controlador das propriedades dos materiais ferrosos. Em aços-carbono, ele controla dureza, resistência, temperabilidade, ductilidade e soldabilidade. Em ferros fundidos, carbono acima de aproximadamente 2,11% passa a ser normal e deve ser interpretado junto com silício, magnésio, grafita e matriz.</p>
         <div class="tabela-wrap">
           <table class="tabela">
             <thead><tr><th>Classe</th><th>Carbono (% massa)</th><th>Comportamento esperado</th><th>Ponto de atenção</th></tr></thead>
@@ -71,18 +71,88 @@
               <tr><td>Baixo carbono</td><td class="num">0,05 – 0,30</td><td>Mais dúctil, soldável e conformável. Menor dureza e menor resistência.</td><td>Se a peça exige alta resistência ao desgaste, pode ser insuficiente sem tratamento ou liga.</td></tr>
               <tr><td>Médio carbono</td><td class="num">0,30 – 0,60</td><td>Bom equilíbrio entre resistência e ductilidade. Responde melhor a tratamento térmico.</td><td>Faixa comum para peças que precisam de resistência mecânica com alguma tenacidade.</td></tr>
               <tr><td>Alto carbono</td><td class="num">0,60 – 1,40</td><td>Alta dureza e resistência ao desgaste. Menor ductilidade.</td><td>Maior risco de fragilidade, trinca e baixa soldabilidade.</td></tr>
+              <tr><td>Aço muito alto carbono / especial</td><td class="num">1,40 – 2,11</td><td>Condição especial, próxima do limite metalúrgico do aço.</td><td>Não interpretar sem especificação clara do grau, tratamento térmico e aplicação.</td></tr>
+              <tr><td>Ferro fundido</td><td class="num">&gt; 2,11</td><td>Carbono alto é esperado. A análise muda: grafita, matriz, Mg, Si e CE passam a ser decisivos.</td><td>Não reprovar como “aço com C alto” se a peça for fundida.</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="nota-fonte">A classificação por carbono é uma referência geral. Para homologação, prevalece sempre a especificação do material da peça.</p>
+        <p class="nota-fonte">A classificação por carbono é uma referência geral. Para homologação, prevalece sempre a especificação do material da peça. Em laudos com C acima de 2,11%, trate o material como provável ferro fundido até prova em contrário.</p>
       </div>
     </section>
 
+
+    <!-- Ferro fundido -->
+    <section class="card card--guia-destaque">
+      <div class="card__cabeca"><h2>2 · Ferros fundidos: nodular, vermicular, lamelar e branco</h2><p class="legenda">Quando C e Si são altos, a peça provavelmente não deve ser lida como aço comum</p></div>
+      <div class="card__corpo">
+        <p>Ferro fundido é uma liga Fe–C–Si com teor de carbono normalmente acima da faixa dos aços. A diferença principal entre nodular, vermicular e lamelar não é só a composição química: é a <strong>forma da grafita</strong> observada na metalografia. A grafita funciona como uma descontinuidade interna; quanto mais arredondada, menor a concentração de tensão e melhor tende a ser a ductilidade.</p>
+
+        <div class="alerta-tecnico"><strong>Regra prática para o seu site:</strong> se o laudo mostrar C acima de aproximadamente 2,11% e Si em torno de 1–3%, o sistema deve alertar “provável ferro fundido” e pedir leitura de grafita, matriz, Mg, carbono equivalente e propriedades mecânicas. Isso evita reprovar errado um ferro fundido por parecer “aço com carbono alto”.</div>
+
+        <div class="tabela-wrap">
+          <table class="tabela tabela-elementos">
+            <thead><tr><th>Tipo</th><th>Grafita observada</th><th>Propriedades típicas</th><th>Uso técnico da análise</th><th>Alertas</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ferro fundido nodular</strong></td><td>Nódulos/esferoides de grafita.</td><td>Melhor combinação de resistência, ductilidade, impacto e fadiga entre os ferros fundidos comuns.</td><td>Verificar nodularidade, contagem de nódulos, Mg residual, matriz ferrítica/perlítica e carbonetos livres.</td><td>Nodularidade baixa, Mg fora de controle ou cementita livre reduzem desempenho.</td></tr>
+              <tr><td><strong>Ferro fundido vermicular</strong></td><td>Grafita compactada, “vermes” curtos e arredondados.</td><td>Intermediário entre nodular e lamelar: boa resistência mecânica, melhor condutividade/amortecimento que nodular.</td><td>Confirmar se a grafita é realmente vermicular e não mistura excessiva de lamelas/nódulos.</td><td>Processo é sensível ao Mg; pequenas variações mudam a morfologia.</td></tr>
+              <tr><td><strong>Ferro fundido lamelar / cinzento</strong></td><td>Grafita em flocos/lamelas.</td><td>Ótimo amortecimento, usinabilidade e condutividade; menor resistência à tração, ductilidade e impacto.</td><td>Avaliar tamanho/distribuição das lamelas e matriz. Pode ser bom para compressão/vibração, ruim para tração/impacto.</td><td>As pontas das lamelas concentram tensão e favorecem fratura frágil.</td></tr>
+              <tr><td><strong>Ferro fundido branco / coquilhado</strong></td><td>Pouca ou nenhuma grafita livre; presença de cementita/ledeburita.</td><td>Muito duro e resistente ao desgaste, porém frágil e de baixa usinabilidade.</td><td>Útil só quando alta dureza/desgaste é especificado. Deve ser visto como alerta em peça estrutural tenaz.</td><td>Carbonetos livres podem reprovar se a peça deveria ser nodular, vermicular ou lamelar cinzento.</td></tr>
+              <tr><td><strong>Ferro fundido maleável</strong></td><td>Grafita revenida/temper carbon após tratamento térmico.</td><td>Melhor ductilidade que o branco original; propriedades dependem fortemente do tratamento.</td><td>Verificar histórico térmico, matriz e formato da grafita.</td><td>Não confundir com nodular apenas olhando propriedades mecânicas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="subtitulo-guia">O que cada elemento significa no ferro fundido</h3>
+        <div class="mini-grid mini-grid--tres">
+          <div class="guia-card guia-card--compacto"><h3>C*</h3><p>Carbono alto é esperado. Participa da grafita e do carbono equivalente. C* continua sendo % em massa por combustão.</p></div>
+          <div class="guia-card guia-card--compacto"><h3>Si</h3><p>Elemento grafitizante. Ajuda a formar grafita em vez de cementita branca. Também eleva resistência da ferrita.</p></div>
+          <div class="guia-card guia-card--compacto"><h3>Mg</h3><p>Elemento-chave do nodular e vermicular. Teor residual em centésimos de % pode mudar toda a forma da grafita.</p></div>
+          <div class="guia-card guia-card--compacto"><h3>Mn</h3><p>Estabiliza carbonetos. Excesso pode aumentar dureza e fragilidade, principalmente junto com S e segregação.</p></div>
+          <div class="guia-card guia-card--compacto"><h3>P</h3><p>Aumenta fluidez, mas pode formar steadita frágil. Em peças de responsabilidade, deve ficar controlado.</p></div>
+          <div class="guia-card guia-card--compacto"><h3>S*</h3><p>Enxofre consome Mg e prejudica nodularização. S* por combustão continua sendo % em massa.</p></div>
+        </div>
+
+        <div class="guia-grade guia-grade--dupla" style="margin-top:18px">
+          <div class="guia-card">
+            <h3>Análises metalográficas obrigatórias em ferro fundido</h3>
+            <ul>
+              <li><strong>Tipo de grafita:</strong> nodular, vermicular, lamelar, mista ou sem grafita livre.</li>
+              <li><strong>Nodularidade:</strong> percentual de grafita esferoidal; crítico em ferro fundido nodular.</li>
+              <li><strong>Contagem de nódulos:</strong> distribuição e quantidade por área, importante para homogeneidade.</li>
+              <li><strong>Matriz:</strong> ferrítica, perlítica, ferrítico-perlítica, bainítica/ausferrítica ou martensítica.</li>
+              <li><strong>Carbonetos/cementita livres:</strong> elevam dureza, mas podem derrubar ductilidade e impacto.</li>
+            </ul>
+          </div>
+          <div class="guia-card">
+            <h3>Carbono equivalente — CE</h3>
+            <p class="formula">CE = C + Si/3 + P/3</p>
+            <p>O CE ajuda a entender tendência de solidificação. CE mais alto favorece grafitização; CE mais baixo e resfriamento rápido aumentam risco de ferro branco/cementita. Ele não substitui a micrografia, mas é uma ótima checagem cruzada.</p>
+            <p><strong>Exemplo:</strong> C = 3,55%, Si = 2,35% e P = 0,03% → CE ≈ 4,34%.</p>
+          </div>
+        </div>
+
+        <h3 class="subtitulo-guia">Relação entre matriz e propriedades</h3>
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead><tr><th>Matriz</th><th>O que tende a melhorar</th><th>O que tende a piorar</th><th>Leitura prática</th></tr></thead>
+            <tbody>
+              <tr><td>Ferrítica</td><td>Ductilidade, alongamento, impacto, usinabilidade.</td><td>Dureza, resistência e desgaste.</td><td>Boa quando a peça precisa absorver deformação/impacto.</td></tr>
+              <tr><td>Perlítica</td><td>Dureza, resistência à tração, resistência ao desgaste.</td><td>Alongamento, impacto e usinabilidade.</td><td>Boa quando a peça precisa resistir a carregamento e desgaste.</td></tr>
+              <tr><td>Ferrítica + perlítica</td><td>Equilíbrio entre resistência e ductilidade.</td><td>Depende da proporção.</td><td>É uma condição comum em nodular de uso geral.</td></tr>
+              <tr><td>Bainítica / ausferrítica</td><td>Alta resistência e boa tenacidade quando bem controlada.</td><td>Processo e tratamento térmico mais críticos.</td><td>Exige norma/grau específico, não deve ser assumida genericamente.</td></tr>
+              <tr><td>Com carbonetos/cementita</td><td>Dureza e desgaste.</td><td>Tenacidade, ductilidade, usinabilidade e resistência a choque.</td><td>Alerta se a peça deveria ser nodular/vermicular estrutural.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
     <!-- Elementos e impurezas -->
     <section class="card card--guia-destaque">
-      <div class="card__cabeca"><h2>2 · Elementos químicos e impurezas</h2><p class="legenda">C* · Si · Mn · P · S* · Cr · Ni · Mo · V · Ti · Cu · Al · Mg · Fe</p></div>
+      <div class="card__cabeca"><h2>3 · Elementos químicos e impurezas</h2><p class="legenda">C* · Si · Mn · P · S* · Cr · Ni · Mo · V · Ti · Cu · Al · Mg · Fe</p></div>
       <div class="card__corpo">
-        <p>Na análise química, o laudo deve permitir separar três coisas: <strong>elementos intencionais</strong>, <strong>elementos residuais</strong> e <strong>impurezas</strong>. Em aços para aplicação ferroviária, impurezas e residuais fora de controle podem reduzir tenacidade, favorecer trincas, alterar tratamento térmico ou indicar que o material não pertence ao grau especificado.</p>
+        <p>Na análise química, o laudo deve permitir separar três coisas: <strong>elementos intencionais</strong>, <strong>elementos residuais</strong> e <strong>impurezas</strong>. Em materiais ferrosos para aplicação ferroviária, impurezas e residuais fora de controle podem reduzir tenacidade, favorecer trincas, alterar tratamento térmico ou indicar que o material não pertence ao grau especificado.</p>
 
         <div class="metodo-box">
           <strong>Lista completa exigida nesta página:</strong>
@@ -96,8 +166,8 @@
               <tr><th>Elemento</th><th>Leitura técnica no laudo</th><th>Quando ajuda</th><th>Quando preocupa</th><th>Classe</th></tr>
             </thead>
             <tbody>
-              <tr><td><span class="elemento-simbolo">C*</span> Carbono <span class="tag-metodo">via combustão</span></td><td>Principal endurecedor do aço. Controla resistência, dureza, temperabilidade e microestrutura esperada.</td><td>Quando está na faixa do grau e coerente com dureza, tração e metalografia.</td><td>Alto demais pode reduzir ductilidade e tenacidade; baixo demais pode não entregar resistência.</td><td>Elemento-base de controle</td></tr>
-              <tr><td><span class="elemento-simbolo">Si</span> Silício</td><td>Desoxidante. Aumenta resistência e ajuda no controle do aço líquido.</td><td>Útil em pequena quantidade para desoxidação e ganho moderado de resistência.</td><td>Excesso pode prejudicar tenacidade e alterar resposta a tratamento térmico.</td><td>Liga/controle</td></tr>
+              <tr><td><span class="elemento-simbolo">C*</span> Carbono <span class="tag-metodo">via combustão</span></td><td>Principal controlador metalúrgico. Em aço controla resistência/dureza; em ferro fundido indica a família do material e participa da grafita.</td><td>Quando está na faixa do grau e coerente com dureza, tração e metalografia.</td><td>Em aço, alto demais preocupa. Em ferro fundido, C acima de 2,11% pode ser normal e deve ser lido com grafita/matriz.</td><td>Elemento-base de controle</td></tr>
+              <tr><td><span class="elemento-simbolo">Si</span> Silício</td><td>Desoxidante em aço e grafitizante em ferro fundido.</td><td>Útil em pequena quantidade para desoxidação e ganho moderado de resistência.</td><td>Em aço, excesso pode prejudicar tenacidade; em ferro fundido, ajuda a grafitização, mas precisa ser calibrado.</td><td>Liga/controle</td></tr>
               <tr><td><span class="elemento-simbolo">Mn</span> Manganês</td><td>Desoxidante e dessulfurante. Ajuda a neutralizar o enxofre formando sulfeto de manganês.</td><td>Melhora resistência e temperabilidade; reduz efeito nocivo do S quando em proporção adequada.</td><td>Muito baixo deixa o aço mais sensível ao S; muito alto pode alterar a temperabilidade esperada.</td><td>Liga/controle</td></tr>
               <tr><td><span class="elemento-simbolo">P</span> Fósforo</td><td>Impureza clássica. Pode segregar em contornos de grão.</td><td>Em geral, deve ser mantido baixo.</td><td>Eleva risco de fragilização, baixa tenacidade e trincas, principalmente em regiões críticas.</td><td><span class="tag-critico">Impureza crítica</span></td></tr>
               <tr><td><span class="elemento-simbolo">S*</span> Enxofre <span class="tag-metodo">via combustão</span></td><td>Impureza clássica. Relacionado a inclusões sulfetadas.</td><td>Em aços de usinagem pode ser intencional, mas em componentes estruturais geralmente deve ser baixo.</td><td>Pode causar fragilidade a quente, reduzir soldabilidade e gerar inclusões alongadas.</td><td><span class="tag-critico">Impureza crítica</span></td></tr>
@@ -108,7 +178,7 @@
               <tr><td><span class="elemento-simbolo">Ti</span> Titânio</td><td>Forte formador de carbonetos/nitretos. Ajuda no controle de grão.</td><td>Útil como microaleante para amarrar N/C e estabilizar grão.</td><td>Excesso ou distribuição ruim pode formar partículas grosseiras e afetar tenacidade.</td><td>Microaleante</td></tr>
               <tr><td><span class="elemento-simbolo">Cu</span> Cobre</td><td>Pode melhorar resistência à corrosão atmosférica em pequenos teores.</td><td>Quando controlado e previsto, pode contribuir para resistência à corrosão.</td><td>Em excesso pode causar fragilidade a quente durante processamento.</td><td>Residual/liga</td></tr>
               <tr><td><span class="elemento-simbolo">Al</span> Alumínio</td><td>Desoxidante forte. Também auxilia no refino de grão por nitretos de alumínio.</td><td>Ajuda a produzir aço acalmado e controlar tamanho de grão.</td><td>Excesso pode aumentar inclusões de alumina e prejudicar limpeza do aço.</td><td>Desoxidante/microaleante</td></tr>
-              <tr><td><span class="elemento-simbolo">Mg</span> Magnésio</td><td>Modificador de inclusões. Em aço, aparece normalmente em teores muito baixos.</td><td>Pode modificar forma de inclusões quando o processo é controlado.</td><td>Valor incomum merece checagem do método, unidade e especificação.</td><td>Residual/processo</td></tr>
+              <tr><td><span class="elemento-simbolo">Mg</span> Magnésio</td><td>Modificador de inclusões. Em aço aparece normalmente em teores muito baixos; em ferro fundido nodular/vermicular modifica a grafita.</td><td>É decisivo para nodularização ou vermicularização quando o processo é controlado.</td><td>Mg baixo pode perder nodularidade; Mg excessivo pode gerar defeitos e carbonetos.</td><td>Residual/processo</td></tr>
               <tr><td><span class="elemento-simbolo">Fe</span> Ferro</td><td>Elemento majoritário do aço. Normalmente aparece como balanço da composição.</td><td>Serve para confirmar que a matriz é ferrosa e fechar o balanço químico.</td><td>Não costuma ser critério isolado de aprovação; deve ser interpretado com os demais elementos.</td><td>Base do material</td></tr>
             </tbody>
           </table>
@@ -129,7 +199,7 @@
 
     <!-- Microestrutura -->
     <section class="card">
-      <div class="card__cabeca"><h2>3 · Microestrutura esperada (metalografia)</h2><p class="legenda">O que a micrografia óptica deve confirmar</p></div>
+      <div class="card__cabeca"><h2>4 · Microestrutura esperada (metalografia)</h2><p class="legenda">O que a micrografia óptica deve confirmar</p></div>
       <div class="card__corpo">
         <p>No resfriamento lento, o aço-carbono tende a formar <strong>ferrita</strong>, <strong>perlita</strong> e, em teores maiores de carbono, <strong>cementita</strong>. O ponto eutetóide fica próximo de 0,77% C. A microestrutura observada deve fazer sentido com o carbono medido, com a dureza e com eventual tratamento térmico informado.</p>
         <div class="faixa-visual">
@@ -155,13 +225,13 @@
 
     <div class="guia-grade">
       <div class="guia-card">
-        <h3>4 · Dureza e resistência</h3>
+        <h3>5 · Dureza e resistência</h3>
         <p>A dureza mede a resistência à deformação localizada. Em aço-carbono, ela cresce com teor de carbono, fração de perlita, martensita e tratamento térmico. A aproximação abaixo ajuda a verificar coerência com a tração:</p>
         <p class="formula">σ<sub>UTS</sub> (MPa) ≈ 3,45 × HB</p>
         <p>Exemplo: 200 HB indica resistência à tração aproximada de 690 MPa. Diferenças grandes entre dureza e tração pedem reconferência de escala, corpo de prova, unidade, região ensaiada e tratamento térmico.</p>
       </div>
       <div class="guia-card">
-        <h3>5 · Tração</h3>
+        <h3>6 · Tração</h3>
         <p>O ensaio de tração mostra como o material suporta carregamento progressivo até a ruptura.</p>
         <ul>
           <li><strong>Limite de escoamento:</strong> início da deformação permanente.</li>
@@ -171,7 +241,7 @@
         </ul>
       </div>
       <div class="guia-card">
-        <h3>6 · Impacto Charpy</h3>
+        <h3>7 · Impacto Charpy</h3>
         <p>O Charpy mede energia absorvida na fratura. É um indicador direto de tenacidade, especialmente importante quando a peça pode sofrer impacto, vibração, baixa temperatura ou concentração de tensões.</p>
         <ul>
           <li>Energia baixa sugere maior risco de fratura frágil.</li>
@@ -180,7 +250,7 @@
         </ul>
       </div>
       <div class="guia-card">
-        <h3>7 · Coerência entre ensaios</h3>
+        <h3>8 · Coerência entre ensaios</h3>
         <p>Um bom parecer não olha cada número isoladamente. O conjunto precisa contar a mesma história metalúrgica.</p>
         <ul>
           <li>C alto + dureza muito baixa: verificar tratamento térmico ou erro de lançamento.</li>
@@ -201,6 +271,8 @@
           <label><input type="checkbox"> A composição química bate com a especificação exigida para a peça?</label>
           <label><input type="checkbox"> P e S estão baixos e coerentes com o nível de qualidade esperado?</label>
           <label><input type="checkbox"> A microestrutura observada é coerente com o teor de carbono e tratamento térmico?</label>
+          <label><input type="checkbox"> Se C &gt; 2,11%, o laudo foi tratado como ferro fundido e não como aço comum?</label>
+          <label><input type="checkbox"> Para ferro fundido, foram informados tipo de grafita, matriz, nodularidade/vermicularidade quando aplicável, Mg residual e carbonetos livres?</label>
           <label><input type="checkbox"> Dureza, tração e impacto contam uma história coerente?</label>
           <label><input type="checkbox"> Existe alguma ressalva que precise de parecer do especialista antes da liberação?</label>
         </div>
@@ -223,7 +295,7 @@
             </tbody>
           </table>
         </div>
-        <p>Para elementos como Mo, V, Ti, Al, Mg e Fe, mantive a lógica mais segura: eles entram no site e no guia, mas devem ser calibrados conforme a especificação do aço analisado para não gerar reprovação injusta.</p>
+        <p>Para elementos como Mo, V, Ti, Al, Mg e Fe, mantive a lógica mais segura: eles entram no site e no guia, mas devem ser calibrados conforme a especificação do aço ou ferro fundido analisado para não gerar reprovação injusta. Em ferro fundido, atenção especial ao Mg residual, Si, CE e forma da grafita.</p>
       </div>
     </section>
 
@@ -236,7 +308,7 @@
           <li>Normas de análise química do laboratório, especialmente métodos por combustão para carbono e enxofre.</li>
           <li>ASTM E45 para avaliação de inclusões não metálicas e ASTM E112 para tamanho de grão.</li>
           <li>ASTM E140 e tabelas equivalentes para conversão aproximada entre dureza e resistência mecânica.</li>
-          <li>Literatura de metalurgia física dos aços-carbono e baixa liga: diagrama Fe–C, ferrita, perlita, cementita, martensita, bainita e efeitos de elementos de liga.</li>
+          <li>Literatura de metalurgia física dos aços-carbono, baixa liga e ferros fundidos: diagrama Fe–C, grafita, ferrita, perlita, cementita, martensita, bainita, nodularização, vermicularização e efeitos de elementos de liga.</li>
         </ul>
         <p class="nota-fonte">Este guia é apoio técnico interno. A decisão final de homologação deve considerar norma aplicável, histórico do fornecedor, criticidade da peça, rastreabilidade e análise do especialista responsável.</p>
       </div>

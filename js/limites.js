@@ -1,10 +1,10 @@
 /* =====================================================================
-   LIMITES E FAIXAS DE REFERÊNCIA — Homologação de aços (ombreiras)
+   LIMITES E FAIXAS DE REFERÊNCIA — Homologação de materiais ferrosos
    ---------------------------------------------------------------------
    ESTE É O ÚNICO ARQUIVO QUE VOCÊ PRECISA EDITAR para calibrar a análise.
 
    ⚠️  IMPORTANTE: os valores abaixo são FAIXAS GERAIS DA METALURGIA DO
-   AÇO-CARBONO, não a especificação de um grau específico de ombreira.
+   AÇOS-CARBONO E FERROS FUNDIDOS, não a especificação de um grau específico da peça.
    Servem como triagem técnica. Quando você tiver a norma/grau exato da
    peça (ex.: composição química e propriedades exigidas), troque os
    números de `min`, `max` e `limite` pelos da especificação.
@@ -21,10 +21,23 @@
 window.LIMITES = {
 
   meta: {
-    material: "Ombreira / chumbador (shoulder) metálico — aço",
-    contexto: "Elemento de fixação embutido em dormente de concreto.",
-    natureza: "Faixas de REFERÊNCIA da metalurgia do aço-carbono — ajuste ao grau/norma da peça.",
+    material: "Ombreira / chumbador (shoulder) metálico — aço ou ferro fundido",
+    contexto: "Elemento de fixação ou componente metálico aplicado na via permanente e em dormente de concreto.",
+    natureza: "Faixas de REFERÊNCIA para triagem de aços-carbono e ferros fundidos — ajuste ao grau/norma/desenho da peça.",
     atualizadoEm: "2026-06-29"
+  },
+
+  material: {
+    opcoes: [
+      "Não definido",
+      "Aço carbono / baixa liga",
+      "Ferro fundido nodular",
+      "Ferro fundido vermicular",
+      "Ferro fundido lamelar",
+      "Ferro fundido branco / coquilhado"
+    ],
+    limiteAcoFerroFundido: 2.11,
+    papel:"Carbono acima de aproximadamente 2,11% indica ferro fundido, não aço comum. Nessa condição, interpretar também grafita, matriz, Mg, Si e carbono equivalente."
   },
 
   /* ---------------------------------------------------------------
@@ -35,13 +48,13 @@ window.LIMITES = {
   quimica: [
     { chave:"C", rotulo:"Carbono (C*) — via combustão", unidade:"%", tipo:"liga",
       min:0.30, max:0.60, severidade:"critico",
-      papel:"Principal endurecedor. Quanto maior o C, maior a dureza e a resistência, e menor a ductilidade, a tenacidade e a soldabilidade.",
-      fonte:"C* medido por via combustão. Faixa de referência de médio carbono 0,30–0,60%; ajustar ao grau/norma da peça." },
+      papel:"Principal controlador metalúrgico. Em aço, aumenta dureza/resistência e reduz soldabilidade. Acima de aproximadamente 2,11% C, o material entra na faixa de ferro fundido.",
+      fonte:"C* medido por via combustão. Para aço médio carbono use 0,30–0,60%; para ferro fundido use a seção específica de ferros fundidos." },
 
     { chave:"Si", rotulo:"Silício (Si)", unidade:"%", tipo:"liga",
       min:0.10, max:0.60, severidade:"observacao",
-      papel:"Desoxidante; aumenta resistência e dureza. Em excesso pode reduzir tenacidade e alterar resposta ao tratamento térmico.",
-      fonte:"Faixa usual de desoxidação ~0,10–0,60% para aços-carbono; ajustar ao grau/norma." },
+      papel:"Em aço atua como desoxidante. Em ferro fundido, é grafitizante e ajuda a formar grafita, reduzindo a tendência à cementita branca.",
+      fonte:"Aços-carbono: ~0,10–0,60%. Ferros fundidos: frequentemente ~1,0–3,5%. Ajustar ao grau/norma." },
 
     { chave:"Mn", rotulo:"Manganês (Mn)", unidade:"%", tipo:"liga",
       min:0.30, max:1.65, severidade:"observacao",
@@ -95,8 +108,8 @@ window.LIMITES = {
 
     { chave:"Mg", rotulo:"Magnésio (Mg)", unidade:"%", tipo:"residual",
       max:0.05, opcional:true, severidade:"observacao",
-      papel:"Em aço, normalmente aparece em teores muito baixos; pode estar ligado à modificação de inclusões ou ao processo.",
-      fonte:"Campo opcional/processo. Valor incomum pede checagem de método, unidade e especificação." },
+      papel:"Em aço costuma ser muito baixo. Em ferro fundido nodular/vermicular é elemento de tratamento: modifica a grafita lamelar para nodular ou vermicular.",
+      fonte:"Campo opcional/processo. Em nodular, Mg residual típico fica em centésimos de %. Ajustar à especificação." },
 
     { chave:"Fe", rotulo:"Ferro (Fe)", unidade:"%", tipo:"informativo",
       opcional:true, severidade:"observacao",
@@ -106,7 +119,7 @@ window.LIMITES = {
 
   /* ---------------------------------------------------------------
      2) METALOGRAFIA / MICROGRAFIA ÓPTICA
-     A microestrutura ESPERADA é deduzida do teor de carbono.
+     A microestrutura ESPERADA é deduzida do teor de carbono e do tipo de material.
      --------------------------------------------------------------- */
   microestrutura: {
     // Limite hipoeutetóide/hipereutetóide e banda do eutetóide (% C)
@@ -128,6 +141,12 @@ window.LIMITES = {
           texto:"Resultado de recozimento de esferoidização: baixa dureza e boa usinabilidade; confirmar se é o estado desejado." } },
       { valor:"Widmanstätten",                classe:"def",   alerta:{ nivel:"critico",
           texto:"Estrutura de superaquecimento / resfriamento inadequado, com grão grosseiro e baixa tenacidade." } },
+      { valor:"Ferro fundido nodular — grafita esferoidal", classe:"fundido", alerta:null },
+      { valor:"Ferro fundido vermicular — grafita compactada", classe:"fundido", alerta:null },
+      { valor:"Ferro fundido lamelar — grafita em flocos", classe:"fundido", alerta:null },
+      { valor:"Ferro fundido branco — cementita/ledeburita", classe:"fundido", alerta:{ nivel:"observacao",
+          texto:"Ferro fundido branco/coquilhado apresenta carbonetos/cementita livres e alta dureza, porém baixa tenacidade. Confirmar se essa condição é especificada." } },
+      { valor:"Ferro fundido maleável",        classe:"fundido", alerta:null },
       { valor:"Não avaliada",                 classe:"na",    alerta:null }
     ],
 
@@ -138,13 +157,58 @@ window.LIMITES = {
 
     inclusoes: { rotulo:"Severidade de inclusões (ASTM E45)", unidade:"índice 0–5",
       max:2.0, severidade:"observacao",
-      papel:"Inclusões não-metálicas (sulfetos/óxidos) atuam como concentradores de tensão. Quanto menor o índice, mais limpo o aço.",
+      papel:"Inclusões não-metálicas (sulfetos/óxidos) atuam como concentradores de tensão. Quanto menor o índice, mais limpo o material.",
       fonte:"Avaliação de inclusões conforme ASTM E45 (índice de severidade)." },
 
     descarbonetacao: { rotulo:"Descarbonetação (profundidade)", unidade:"mm",
       max:0.20, opcional:true, severidade:"observacao",
       papel:"Camada superficial empobrecida em carbono reduz dureza e resistência à fadiga na superfície da peça.",
       fonte:"Controle usual de profundidade de descarbonetação em peças tratadas (boa prática)." }
+  },
+
+  /* ---------------------------------------------------------------
+     3) FERRO FUNDIDO — grafita, matriz e propriedades
+     Estas faixas são gerais. Sempre prevalece a especificação/desenho.
+     --------------------------------------------------------------- */
+  ferroFundido: {
+    carbono: { rotulo:"Carbono para ferro fundido", unidade:"%", min:2.50, max:4.30, severidade:"observacao",
+      papel:"Faixa típica de C para ferros fundidos. C alto não significa erro se o componente for fundido.",
+      fonte:"Referência geral de ferros fundidos; ajustar conforme grau ASTM/ISO/desenho." },
+    silicio: { rotulo:"Silício para ferro fundido", unidade:"%", min:1.00, max:3.50, severidade:"observacao",
+      papel:"Silício é grafitizante: favorece grafita e reduz tendência a ferro fundido branco/cementita.",
+      fonte:"Faixa geral de Si em ferros fundidos; ajustar ao grau." },
+    manganes: { rotulo:"Manganês para ferro fundido", unidade:"%", max:1.20, severidade:"observacao",
+      papel:"Mn estabiliza carbonetos e deve ser controlado; excesso pode aumentar dureza e reduzir usinabilidade/tenacidade.",
+      fonte:"Referência geral; ajustar ao grau." },
+    fosforo: { rotulo:"Fósforo para ferro fundido", unidade:"%", limite:0.10, severidade:"observacao",
+      papel:"P aumenta fluidez, mas pode formar steadita frágil. Em peça estrutural, manter baixo.",
+      fonte:"Teto genérico para triagem; ajustar ao componente." },
+    enxofre: { rotulo:"Enxofre para ferro fundido", unidade:"%", limite:0.03, severidade:"observacao",
+      papel:"S consome Mg e prejudica nodularização. Para nodular/vermicular, deve ser baixo antes do tratamento.",
+      fonte:"Triagem conservadora para ferro fundido tratado com Mg; ajustar ao processo." },
+    magnesio: { rotulo:"Magnésio residual", unidade:"%", min:0.015, max:0.080, severidade:"observacao",
+      papel:"Mg residual é decisivo para formar grafita nodular ou vermicular. Baixo demais perde nodularidade; alto demais pode gerar defeitos/rechupes/carbonetos.",
+      fonte:"Faixa genérica de Mg residual em ferros fundidos nodulares/vermicular; calibrar pelo fornecedor." },
+    nodularidade: { chave:"NOD", rotulo:"Nodularidade", unidade:"%", min:80, opcional:true, severidade:"critico",
+      papel:"Percentual de grafita em forma esferoidal. Alta nodularidade aumenta ductilidade, resistência e impacto.",
+      fonte:"Referência comum para ferro fundido nodular; ajustar ao grau especificado." },
+    nodulos: { chave:"NODULOS", rotulo:"Contagem de nódulos", unidade:"nod/mm²", min:100, opcional:true, severidade:"observacao",
+      papel:"Nódulos numerosos e bem distribuídos ajudam a evitar carbonetos, segregação e variação de propriedades.",
+      fonte:"Valor de triagem; depende da espessura da peça e método metalográfico." },
+    ferrita: { chave:"FERRITA", rotulo:"Matriz ferrítica", unidade:"%", min:0, max:100, opcional:true, severidade:"observacao",
+      papel:"Matriz ferrítica favorece ductilidade, alongamento, impacto e usinabilidade, com menor dureza/resistência.",
+      fonte:"Campo informativo de metalografia quantitativa." },
+    perlita: { chave:"PERLITA", rotulo:"Matriz perlítica", unidade:"%", min:0, max:100, opcional:true, severidade:"observacao",
+      papel:"Matriz perlítica aumenta resistência, dureza e desgaste, mas reduz ductilidade e impacto.",
+      fonte:"Campo informativo de metalografia quantitativa." },
+    cementita: { chave:"CEMENTITA", rotulo:"Cementita/carbonetos livres", unidade:"%", max:2.0, opcional:true, severidade:"critico",
+      papel:"Carbonetos livres elevam dureza e fragilidade. Em nodular/vermicular estrutural, presença relevante geralmente é indesejável.",
+      fonte:"Teto genérico de triagem; ajustar à especificação." },
+    carbonoEquivalente: { chave:"CE", rotulo:"Carbono equivalente — CE", unidade:"%", min:3.60, max:4.80, opcional:true, severidade:"observacao",
+      papel:"CE = C + Si/3 + P/3. Indica tendência de solidificação/grafitização e risco de coquilhamento/cementita.",
+      fonte:"Fórmula prática de fundição; calibrar por espessura da peça e processo." },
+    tiposGrafita: ["Não avaliada", "Nodular / esferoidal", "Vermicular / compactada", "Lamelar / flocos", "Mista", "Sem grafita livre / branco"],
+    matrizes: ["Não avaliada", "Ferrítica", "Perlítica", "Ferrítica + Perlítica", "Bainítica / ausferrítica", "Martensítica", "Com carbonetos/cementita"]
   },
 
   /* ---------------------------------------------------------------

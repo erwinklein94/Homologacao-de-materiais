@@ -173,32 +173,38 @@
       '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">1</span><h2>Análise química</h2><p class="legenda">Elementos, impurezas e aderência à faixa</p></div></section>' +
       '<section class="dashboard-grid dashboard-grid--dupla">' +
         canvasCard("chart-quimica", "Mapa de conformidade química", "Cada elemento aparece normalizado contra a faixa/limite cadastrado.") +
-        canvasCard("chart-impurezas", "Impurezas críticas — P e S", "Quanto menor o percentual do teto, mais limpo o aço.") +
+        canvasCard("chart-impurezas", "Impurezas críticas — P e S", "Quanto menor o percentual do teto, mais limpo o material.") +
       '</section>' +
       '<section class="dashboard-grid dashboard-grid--dupla">' +
-        canvasCard("chart-carbono", "Carbono e classe metalúrgica", "Baixo, médio, eutetóide/alto carbono e impacto esperado nas propriedades.") +
+        canvasCard("chart-carbono", "Carbono e classe metalúrgica", "Aço baixo/médio/alto carbono ou provável ferro fundido.") +
         canvasCard("chart-quimica-valores", "Teores químicos informados", "Comparação visual dos elementos medidos em % de massa.") +
       '</section>' +
 
-      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">2</span><h2>Metalografia / micrografia</h2><p class="legenda">Microestrutura, grão, inclusões e descarbonetação</p></div></section>' +
+      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">2</span><h2>Ferro fundido</h2><p class="legenda">Grafita, matriz, nodularidade e carbono equivalente</p></div></section>' +
+      '<section class="dashboard-grid dashboard-grid--dupla">' +
+        canvasCard("chart-ferro-tipo", "Tipo de ferro fundido", "Cruza carbono, grafita observada, Mg e carbono equivalente.") +
+        canvasCard("chart-ferro-matriz", "Matriz e controles metalográficos", "Nodularidade, nódulos, ferrita, perlita, cementita e CE normalizados.") +
+      '</section>' +
+
+      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">3</span><h2>Metalografia / micrografia</h2><p class="legenda">Microestrutura, grão, inclusões e descarbonetação</p></div></section>' +
       '<section class="dashboard-grid dashboard-grid--dupla">' +
         canvasCard("chart-metalografia", "Critérios metalográficos", "Grão ASTM, inclusões ASTM E45 e descarbonetação superficial.") +
         canvasCard("chart-microstatus", "Coerência da microestrutura", "Compara a microestrutura observada com o esperado pelo teor de carbono.") +
       '</section>' +
 
-      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">3</span><h2>Dureza</h2><p class="legenda">Brinell e estimativa de resistência</p></div></section>' +
+      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">4</span><h2>Dureza</h2><p class="legenda">Brinell e estimativa de resistência</p></div></section>' +
       '<section class="dashboard-grid dashboard-grid--dupla">' +
         canvasCard("chart-dureza", "Dureza Brinell — HB", "Mostra se a dureza caiu abaixo, dentro ou acima da faixa cadastrada.") +
         canvasCard("chart-hb-uts", "Dureza × resistência estimada", "Estimativa UTS ≈ fator cadastrado × HB para checagem cruzada.") +
       '</section>' +
 
-      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">4</span><h2>Ensaio de tração</h2><p class="legenda">Resistência e ductilidade</p></div></section>' +
+      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">5</span><h2>Ensaio de tração</h2><p class="legenda">Resistência e ductilidade</p></div></section>' +
       '<section class="dashboard-grid dashboard-grid--dupla">' +
         canvasCard("chart-tracao", "Parâmetros de tração", "LE, LR, alongamento e redução de área normalizados por critério.") +
         canvasCard("chart-tracao-historico", "Tendência mecânica", "Evolução normalizada de HB, LR e Charpy nos laudos salvos.") +
       '</section>' +
 
-      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">5</span><h2>Ensaio de impacto</h2><p class="legenda">Tenacidade Charpy e temperatura</p></div></section>' +
+      '<section class="card card--dashboard-titulo"><div class="card__cabeca"><span class="card__num">6</span><h2>Ensaio de impacto</h2><p class="legenda">Tenacidade Charpy e temperatura</p></div></section>' +
       '<section class="dashboard-grid dashboard-grid--dupla">' +
         canvasCard("chart-impacto", "Energia Charpy", "Tenacidade mínima do material na condição ensaiada.") +
         canvasCard("chart-impacto-temp", "Impacto × temperatura", "Mostra a energia absorvida junto com a temperatura informada no laudo.") +
@@ -350,28 +356,63 @@
 
   function drawCarbono(canvas, dados) {
     var val = n((dados.quimica || {}).C);
-    if (val === null) { semDados(canvas, "Informe o carbono para classificar o aço."); return; }
-    var p = prepararCanvas(canvas, 230); if (!p) return;
+    if (val === null) { semDados(canvas, "Informe o carbono para classificar aço ou ferro fundido."); return; }
+    var p = prepararCanvas(canvas, 250); if (!p) return;
     var ctx = p.ctx, c = p.c;
-    var left = 36, right = 30, y = 92, largura = p.w - left - right;
-    var max = Math.max(1.05, val * 1.2);
+    var left = 32, right = 30, y = 104, largura = p.w - left - right;
+    var max = Math.max(4.8, val * 1.12);
     function x(v) { return left + largura * Math.min(max, Math.max(0, v)) / max; }
     var zonas = [
-      { ini:0, fim:0.30, cor:c.verde, txt:"baixo C" },
-      { ini:0.30, fim:0.60, cor:c.azulClaro, txt:"médio C" },
-      { ini:0.60, fim:max, cor:c.laranja, txt:"alto C" }
+      { ini:0, fim:0.30, cor:c.verde, txt:"aço baixo C" },
+      { ini:0.30, fim:0.60, cor:c.azulClaro, txt:"aço médio C" },
+      { ini:0.60, fim:1.40, cor:c.laranja, txt:"aço alto C" },
+      { ini:1.40, fim:2.11, cor:c.amarelo, txt:"aço especial" },
+      { ini:2.11, fim:max, cor:c.erro, txt:"ferro fundido" }
     ];
     zonas.forEach(function (z) {
-      ctx.fillStyle = z.cor; ctx.fillRect(x(z.ini), y, Math.max(0, x(z.fim) - x(z.ini)), 30);
-      ctx.fillStyle = "#fff"; ctx.textAlign = "center"; ctx.font = "700 11px Verdana, sans-serif";
-      ctx.fillText(z.txt, (x(z.ini) + x(z.fim)) / 2, y + 20);
+      ctx.fillStyle = z.cor; ctx.fillRect(x(z.ini), y, Math.max(0, x(z.fim) - x(z.ini)), 34);
+      ctx.fillStyle = "#fff"; ctx.textAlign = "center"; ctx.font = "700 10px Verdana, sans-serif";
+      if (x(z.fim) - x(z.ini) > 54) ctx.fillText(z.txt, (x(z.ini) + x(z.fim)) / 2, y + 22);
     });
-    ctx.fillStyle = c.erro; var px = x(val); ctx.fillRect(px - 2, y - 14, 4, 58);
-    ctx.fillStyle = c.azul; ctx.textAlign = "center"; ctx.font = "700 24px Verdana, sans-serif"; ctx.fillText(fmt(val, 3) + "% C", p.w / 2, 48);
+    ctx.fillStyle = c.azul; var px = x(val); ctx.fillRect(px - 2, y - 16, 4, 66);
+    ctx.fillStyle = c.azul; ctx.textAlign = "center"; ctx.font = "700 24px Verdana, sans-serif"; ctx.fillText(fmt(val, 3) + "% C", p.w / 2, 42);
     ctx.font = "12px Verdana, sans-serif"; ctx.fillStyle = c.texto;
-    var classe = val < .30 ? "baixo carbono" : (val <= .60 ? "médio carbono" : "alto carbono");
-    ctx.fillText("Classificação aproximada: " + classe, p.w / 2, 70);
-    ctx.textAlign = "left"; ctx.font = "11px Verdana, sans-serif"; ctx.fillText("0,30%", x(.30) - 16, y + 54); ctx.fillText("0,60%", x(.60) - 16, y + 54);
+    var classe = val > 2.11 ? "provável ferro fundido" : (val < .30 ? "aço baixo carbono" : (val <= .60 ? "aço médio carbono" : (val <= 1.40 ? "aço alto carbono" : "aço especial / validar grau")));
+    ctx.fillText("Classificação aproximada: " + classe, p.w / 2, 66);
+    ctx.textAlign = "left"; ctx.font = "11px Verdana, sans-serif";
+    [[.30,"0,30%"],[.60,"0,60%"],[1.40,"1,40%"],[2.11,"2,11%"]].forEach(function (m) { ctx.fillText(m[1], x(m[0]) - 16, y + 58); });
+    if (val > 2.11) {
+      ctx.fillStyle = c.texto;
+      wrapText(ctx, "C acima de 2,11% não deve ser tratado como aço comum. Verificar grafita, matriz, Mg e CE.", 34, 202, p.w - 68, 17);
+    }
+  }
+
+  function calcCE(dados) {
+    var q = dados.quimica || {};
+    var c = n(q.C), si = n(q.Si), pval = n(q.P);
+    if (c === null || si === null) return null;
+    return c + si / 3 + (pval || 0) / 3;
+  }
+
+  function drawFerroTipo(canvas, dados, r) {
+    var q = dados.quimica || {}, ff = dados.ferroFundido || {}, id = dados.identificacao || {};
+    var cval = n(q.C), mg = n(q.Mg), ce = n(ff.CE); if (ce === null) ce = calcCE(dados);
+    var ehFerro = /Ferro fundido/i.test(id.material || "") || (cval !== null && cval > 2.11) || (ff.tipoGrafita && ff.tipoGrafita !== "Não avaliada");
+    if (!ehFerro) { semDados(canvas, "Use este gráfico quando o laudo for de ferro fundido ou C > 2,11%."); return; }
+    var p = prepararCanvas(canvas, 250); if (!p) return;
+    var ctx = p.ctx, cor = p.c;
+    var tipo = ff.tipoGrafita || "Não avaliada";
+    var matriz = ff.matriz || "Não avaliada";
+    ctx.fillStyle = cor.azul; ctx.textAlign = "center"; ctx.font = "700 18px Verdana, sans-serif";
+    ctx.fillText(id.material || (cval > 2.11 ? "Provável ferro fundido" : "Material não definido"), p.w/2, 34);
+    ctx.fillStyle = cval !== null && cval > 2.11 ? cor.verde : cor.amarelo;
+    ctx.beginPath(); ctx.arc(p.w/2, 88, 36, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = "#fff"; ctx.font = "700 16px Verdana, sans-serif"; ctx.fillText(cval !== null ? fmt(cval,2)+"% C" : "C —", p.w/2, 94);
+    ctx.fillStyle = cor.texto; ctx.font = "12px Verdana, sans-serif";
+    ctx.fillText("Grafita: " + tipo, p.w/2, 142);
+    ctx.fillText("Matriz: " + matriz, p.w/2, 164);
+    ctx.fillText("Mg: " + (mg !== null ? fmt(mg,3)+"%" : "—") + " · CE: " + (ce !== null ? fmt(ce,2)+"%" : "—"), p.w/2, 186);
+    wrapText(ctx, "Leitura correta: a forma da grafita define o tipo; a matriz define o equilíbrio entre resistência, dureza, ductilidade e impacto.", 32, 216, p.w - 64, 16);
   }
 
   function drawMicroStatus(canvas, r, dados) {
@@ -545,6 +586,9 @@
     drawImpurezas(document.getElementById("chart-impurezas"), dados);
     drawCarbono(document.getElementById("chart-carbono"), dados);
     drawBarValores(document.getElementById("chart-quimica-valores"), rowsDeSecao(r, "quimica"), "%", "teor em % de massa");
+
+    drawFerroTipo(document.getElementById("chart-ferro-tipo"), dados, r);
+    drawNormalizado(document.getElementById("chart-ferro-matriz"), rowsDeSecao(r, "ferrofundido"), { left:190 });
 
     drawNormalizado(document.getElementById("chart-metalografia"), rowsDeSecao(r, "metalografia"), { left:180 });
     drawMicroStatus(document.getElementById("chart-microstatus"), r, dados);

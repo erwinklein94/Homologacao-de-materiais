@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Entrada de parâmetros · Homologação de aços · Rumo</title>
+  <title>Entrada de parâmetros · Homologação de materiais · Rumo</title>
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
       <div class="topo__marca">
         <img src="assets/rumo/rumo-logo-branco.png" alt="Rumo">
         <span class="topo__divisor"></span>
-        <span class="topo__titulo">Homologação de Materiais<span>Analisador de laudos — aços</span></span>
+        <span class="topo__titulo">Homologação de Materiais<span>Analisador de laudos — aços e ferros fundidos</span></span>
       </div>
       <nav class="nav">
         <a href="index.html" class="ativo">Parâmetros</a>
@@ -27,12 +27,12 @@
     <div class="cabecalho">
       <p class="eyebrow">Etapa 1 — Registro</p>
       <h1>Parâmetros do laudo</h1>
-      <p class="sub">Lance os valores do relatório do laboratório para a ombreira (shoulder). Campos em branco são ignorados na análise. Ao final, clique em <strong>Analisar laudo</strong>.</p>
+      <p class="sub">Lance os valores do relatório do laboratório para a ombreira, insert, chumbador ou outro componente metálico. Campos em branco são ignorados na análise. Ao final, clique em <strong>Analisar laudo</strong>.</p>
     </div>
 
     <div class="aviso">
       <span class="aviso__ico">⚠️</span>
-      <div><strong>Triagem técnica.</strong> Os limites usados são faixas de referência da metalurgia do aço-carbono, não a especificação de um grau específico de ombreira. O resultado é uma análise preliminar e não substitui o laudo de homologação nem a norma do material. Ajuste os limites em <code>js/limites.js</code> quando tiver o grau exato.</div>
+      <div><strong>Triagem técnica.</strong> Os limites usados são faixas de referência da metalurgia de aços-carbono e ferros fundidos, não a especificação final de um grau específico da peça. O resultado é uma análise preliminar e não substitui o laudo de homologação nem a norma do material. Ajuste os limites em <code>js/limites.js</code> quando tiver o grau exato.</div>
     </div>
 
     <!-- Identificação (campos fixos) -->
@@ -51,6 +51,16 @@
             <div class="campo__entrada"><input type="text" id="id_laudo" placeholder="ex.: LAB-2026-0098"></div></div>
           <div class="campo"><label for="id_data">Data do ensaio</label>
             <div class="campo__entrada"><input type="date" id="id_data"></div></div>
+          <div class="campo"><label for="id_material">Tipo de material</label>
+            <div class="campo__entrada"><select id="id_material">
+              <option value="Não definido">Não definido</option>
+              <option value="Aço carbono / baixa liga">Aço carbono / baixa liga</option>
+              <option value="Ferro fundido nodular">Ferro fundido nodular</option>
+              <option value="Ferro fundido vermicular">Ferro fundido vermicular</option>
+              <option value="Ferro fundido lamelar">Ferro fundido lamelar</option>
+              <option value="Ferro fundido branco / coquilhado">Ferro fundido branco / coquilhado</option>
+            </select></div>
+            <span class="ajuda">Ajuda o sistema a interpretar carbono alto, grafita, matriz e magnésio.</span></div>
         </div>
       </div>
     </section>
