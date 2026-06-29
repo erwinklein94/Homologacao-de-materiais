@@ -11,6 +11,7 @@ Site estático para apoiar a homologação de **ombreiras / chumbadores (shoulde
 ```
 homologacao-acos-rumo/
 ├── index.html          Entrada de parâmetros (formulário)
+├── dashboard.html      Dashboard com gráficos técnicos por item do relatório
 ├── resultados.html     Resultados e pareceres
 ├── guia.html           Guia técnico (metalurgia que embasa a análise)
 ├── css/
@@ -18,7 +19,8 @@ homologacao-acos-rumo/
 ├── js/
 │   ├── limites.js       ← FAIXAS DE REFERÊNCIA (o único arquivo que você edita)
 │   ├── analise.js       Motor: classifica valores e monta o parecer
-│   ├── entrada.js       Monta o formulário e salva os dados
+│   ├── entrada.js       Monta o formulário e salva os dados/histórico local
+│   ├── dashboard.js     Desenha os gráficos do laudo e do histórico
 │   └── resultados.js    Desenha o veredito e as barras de faixa
 └── assets/rumo/         Logos oficiais
 ```
@@ -48,7 +50,7 @@ python3 -m http.server 8000
 5. Aguarde alguns instantes: o endereço aparece como `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`.
 
 Observações:
-- Os dados digitados ficam **apenas no seu navegador** (via `localStorage`), passando da tela de parâmetros para a de resultados. Nada é enviado para servidor algum.
+- Os dados digitados ficam **apenas no seu navegador** (via `localStorage`), passando da tela de parâmetros para a de resultados e para o dashboard. Nada é enviado para servidor algum.
 - Para repositório **privado**, o GitHub Pages exige plano pago/organização. Em repositório **público** funciona no plano gratuito.
 
 ---

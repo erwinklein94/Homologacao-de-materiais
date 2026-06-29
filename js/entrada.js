@@ -6,6 +6,7 @@
   "use strict";
   var L = window.LIMITES;
   var CHAVE_ARMAZENAMENTO = "homologacao_dados";
+  var CHAVE_HISTORICO = "homologacao_historico";
 
   function passo(unidade) {
     switch (unidade) {
@@ -111,6 +112,32 @@
     return d;
   }
 
+
+  function salvarNoHistorico(dados) {
+    var historico = [];
+    try { historico = JSON.parse(localStorage.getItem(CHAVE_HISTORICO)) || []; } catch (e) { historico = []; }
+    if (!Array.isArray(historico)) historico = [];
+
+    var assinaturaAtual = JSON.stringify(dados || {});
+    var ultimo = historico.length ? historico[historico.length - 1] : null;
+    var assinaturaUltimo = ultimo ? JSON.stringify(ultimo.dados || ultimo) : null;
+
+    // Evita duplicar o mesmo laudo quando o usuário clica mais de uma vez sem alterar nada.
+    if (assinaturaAtual !== assinaturaUltimo) {
+      historico.push({
+        id: "laudo_" + Date.now(),
+        criadoEm: new Date().toISOString(),
+        dados: dados
+      });
+    } else if (ultimo && !ultimo.criadoEm) {
+      ultimo.criadoEm = new Date().toISOString();
+    }
+
+    // Mantém o navegador leve mesmo com muitos testes.
+    if (historico.length > 80) historico = historico.slice(historico.length - 80);
+    localStorage.setItem(CHAVE_HISTORICO, JSON.stringify(historico));
+  }
+
   function preencher(d) {
     if (!d) return;
     var i = d.identificacao || {};
@@ -138,7 +165,10 @@
   function ligarEventos() {
     document.getElementById("btn-analisar").addEventListener("click", function () {
       var dados = coletar();
-      try { localStorage.setItem(CHAVE_ARMAZENAMENTO, JSON.stringify(dados)); }
+      try {
+        localStorage.setItem(CHAVE_ARMAZENAMENTO, JSON.stringify(dados));
+        salvarNoHistorico(dados);
+      }
       catch (e) { /* navegação ainda funciona via sessão na própria página */ }
       window.location.href = "resultados.html";
     });
