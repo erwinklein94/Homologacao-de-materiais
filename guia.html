@@ -144,13 +144,117 @@
             </tbody>
           </table>
         </div>
+
+      </div>
+    </section>
+
+
+    <!-- Galeria de micrografias -->
+    <section class="card card--guia-destaque">
+      <div class="card__cabeca"><h2>3 · Galeria de micrografias para ombreiras e materiais ferrosos</h2><p class="legenda">Exemplos visuais para reconhecer grafita, matriz, defeitos e coerência com os ensaios</p></div>
+      <div class="card__corpo">
+        <p>Esta galeria serve para treinar o olhar do fiscal e do analista. Em relatórios como os de ombreiras, a micrografia não deve ser tratada como uma imagem decorativa: ela confirma se a composição química, a dureza, a tração e o impacto fazem sentido para o tipo de material informado.</p>
+
+        <div class="micro-real">
+          <figure>
+            <img src="assets/micrografias/mib0048_figura2_micrografia_nucleo.png" alt="Micrografia óptica de núcleo e classificação das grafitas por software do laudo MIB-0048-26">
+            <figcaption>Exemplo real de laudo MIB: micrografia óptica de núcleo e classificação das grafitas por software.</figcaption>
+          </figure>
+          <div>
+            <span class="guia-pill guia-pill--escuro">Exemplo de ombreira</span>
+            <h3>Como ler a Figura 2 do laudo MIB-0048-26</h3>
+            <p>Neste exemplo, a peça apresenta composição típica de ferro fundido: C = 3,05%, Si = 2,89% e Mg = 0,026%. A micrografia mostra grafitas nodulares com matriz ferrítico-perlítica e ferrita concentrada ao redor das grafitas, formando o aspecto conhecido como <strong>“olho de boi”</strong>.</p>
+            <ul class="lista-tecnica">
+              <li><strong>Forma VI:</strong> grafita predominantemente nodular/esferoidal.</li>
+              <li><strong>Tamanho 5:</strong> classe de tamanho da grafita na classificação informada no laudo.</li>
+              <li><strong>Núcleo:</strong> região interna da peça; é importante comparar núcleo e superfície quando houver suspeita de variação por resfriamento.</li>
+              <li><strong>Coerência:</strong> dureza média de 190 HB, resistência de 561,8 MPa e impacto de 8 J devem ser avaliados junto com a matriz e a aplicação da ombreira.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alerta-tecnico"><strong>Importante:</strong> as imagens didáticas abaixo são exemplos visuais para orientar a leitura. Elas não substituem a classificação formal feita pelo laboratório, que deve informar norma, ataque, aumento, escala, região analisada e critério de classificação.</div>
+
+        <h3 class="subtitulo-guia">Exemplos de grafita e matriz em ferros fundidos</h3>
+        <div class="micro-grid">
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_nodular_ferritico.svg" alt="Exemplo ilustrativo de ferro fundido nodular ferrítico">
+            <div class="micro-card__corpo"><span class="micro-tag">Nodular ferrítico</span><h3>Grafita esferoidal + matriz ferrítica</h3><p>Boa ductilidade, melhor alongamento e melhor resposta ao impacto. Espera-se menor dureza que uma matriz perlítica.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_nodular_perlitico.svg" alt="Exemplo ilustrativo de ferro fundido nodular perlítico">
+            <div class="micro-card__corpo"><span class="micro-tag">Nodular perlítico</span><h3>Nódulos em matriz mais escura/perlítica</h3><p>Tende a maior resistência e dureza. Pode perder alongamento e energia Charpy quando comparado ao ferrítico.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_olho_de_boi.svg" alt="Exemplo ilustrativo de microestrutura olho de boi em ferro fundido nodular">
+            <div class="micro-card__corpo"><span class="micro-tag">Olho de boi</span><h3>Ferrita ao redor dos nódulos</h3><p>Aspecto comum em nodular ferrítico-perlítico. A ferrita clara contorna a grafita e a perlita permanece entre as células.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_vermicular.svg" alt="Exemplo ilustrativo de ferro fundido vermicular">
+            <div class="micro-card__corpo"><span class="micro-tag">Vermicular</span><h3>Grafita compactada em “vermes”</h3><p>Intermediário entre nodular e lamelar. Exige controle fino de Mg; mistura excessiva com lamelas ou nódulos muda a propriedade.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_lamelar_tipo_a.svg" alt="Exemplo ilustrativo de ferro fundido lamelar tipo A">
+            <div class="micro-card__corpo"><span class="micro-tag">Lamelar tipo A</span><h3>Flocos bem distribuídos</h3><p>Típico de ferro fundido cinzento. Bom amortecimento e usinabilidade, porém baixa ductilidade e baixa resistência a impacto.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_lamelar_interdendritica.svg" alt="Exemplo ilustrativo de grafita lamelar interdendrítica">
+            <div class="micro-card__corpo"><span class="micro-tag">Lamelar interdendrítica</span><h3>Lamelas agrupadas em regiões</h3><p>Distribuição menos uniforme. Pode indicar solidificação segregada, resfriamento inadequado ou variação local na seção da peça.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_misto_baixa_nodularidade.svg" alt="Exemplo ilustrativo de grafita mista com baixa nodularidade">
+            <div class="micro-card__corpo"><span class="micro-tag micro-tag--alerta">Baixa nodularidade</span><h3>Mistura de nódulos e grafita compactada</h3><p>Alerta para ferro nodular: pode reduzir alongamento, fadiga e impacto. Verificar Mg residual e tratamento de nodularização.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_ferro_branco_carbonetos.svg" alt="Exemplo ilustrativo de ferro fundido branco com carbonetos">
+            <div class="micro-card__corpo"><span class="micro-tag micro-tag--critico">Carbonetos</span><h3>Ferro branco / cementita livre</h3><p>Aumenta dureza e desgaste, mas derruba ductilidade. Em ombreira estrutural, carboneto livre deve ser tratado como ponto crítico.</p></div>
+          </article>
+        </div>
+
+        <h3 class="subtitulo-guia">Exemplos de defeitos e sinais de processo</h3>
+        <div class="micro-grid micro-grid--compacta">
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_porosidade_rechupe.svg" alt="Exemplo ilustrativo de porosidade e rechupe em peça fundida">
+            <div class="micro-card__corpo"><span class="micro-tag micro-tag--critico">Defeito de fundição</span><h3>Porosidade / rechupe</h3><p>Vazios escuros e irregulares. Podem reduzir seção resistente, iniciar trincas e prejudicar fadiga.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_inclusoes_sulfetos_oxidos.svg" alt="Exemplo ilustrativo de inclusões não metálicas">
+            <div class="micro-card__corpo"><span class="micro-tag micro-tag--alerta">Limpeza metálica</span><h3>Inclusões, sulfetos e óxidos</h3><p>Inclusões alongadas ou agrupadas funcionam como concentradores de tensão. Conferir P/S, desoxidação e severidade.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_descarbonetacao_superficial.svg" alt="Exemplo ilustrativo de descarbonetação superficial em aço">
+            <div class="micro-card__corpo"><span class="micro-tag">Aço tratado</span><h3>Descarbonetação superficial</h3><p>Camada clara empobrecida em carbono. Pode reduzir dureza superficial e resistência à fadiga.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_ferrita_perlita_aco.svg" alt="Exemplo ilustrativo de ferrita e perlita em aço carbono">
+            <div class="micro-card__corpo"><span class="micro-tag">Aço carbono</span><h3>Ferrita + perlita</h3><p>Coerente com aços hipoeutetóides. A fração de perlita deve crescer com o teor de carbono.</p></div>
+          </article>
+          <article class="micro-card">
+            <img src="assets/micrografias/exemplo_martensita_bainita.svg" alt="Exemplo ilustrativo de martensita ou bainita em material tratado termicamente">
+            <div class="micro-card__corpo"><span class="micro-tag">Tratamento térmico</span><h3>Martensita / bainita</h3><p>Estruturas aciculares sugerem têmpera ou austêmpera. Devem ser coerentes com dureza elevada e requisito do grau.</p></div>
+          </article>
+        </div>
+
+        <h3 class="subtitulo-guia">Checklist rápido para leitura de micrografias</h3>
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead><tr><th>O que olhar</th><th>Como aparece</th><th>Interpretação prática</th><th>Quando vira alerta</th></tr></thead>
+            <tbody>
+              <tr><td>Forma da grafita</td><td>Nódulo, verme, lamela, mista ou ausente.</td><td>Define se o ferro fundido é nodular, vermicular, lamelar ou branco.</td><td>Quando a forma observada não combina com o material especificado.</td></tr>
+              <tr><td>Nodularidade</td><td>Percentual de partículas esferoidais.</td><td>Quanto maior, melhor tende a ductilidade no ferro nodular.</td><td>Nodularidade baixa em peça que deveria ser nodular.</td></tr>
+              <tr><td>Matriz</td><td>Ferrítica, perlítica, ferrítico-perlítica, bainítica, martensítica ou com carbonetos.</td><td>Explica dureza, resistência, alongamento e impacto.</td><td>Dureza/tração/impacto incoerentes com a matriz informada.</td></tr>
+              <tr><td>Região analisada</td><td>Núcleo, superfície, borda, seção fina ou seção grossa.</td><td>Ajuda a entender efeito de resfriamento e homogeneidade.</td><td>Laudo mostra só uma região quando a peça pode variar muito pela seção.</td></tr>
+              <tr><td>Defeitos</td><td>Poros, rechupe, inclusões, trincas, carbonetos livres.</td><td>São potenciais iniciadores de falha.</td><td>Quando aparecem em região crítica ou em quantidade relevante.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
 
     <!-- Elementos e impurezas -->
     <section class="card card--guia-destaque">
-      <div class="card__cabeca"><h2>3 · Elementos químicos e impurezas</h2><p class="legenda">C* · Si · Mn · P · S* · Cr · Ni · Mo · V · Ti · Cu · Al · Mg · Fe</p></div>
+      <div class="card__cabeca"><h2>4 · Elementos químicos e impurezas</h2><p class="legenda">C* · Si · Mn · P · S* · Cr · Ni · Mo · V · Ti · Cu · Al · Mg · Fe</p></div>
       <div class="card__corpo">
         <p>Na análise química, o laudo deve permitir separar três coisas: <strong>elementos intencionais</strong>, <strong>elementos residuais</strong> e <strong>impurezas</strong>. Em materiais ferrosos para aplicação ferroviária, impurezas e residuais fora de controle podem reduzir tenacidade, favorecer trincas, alterar tratamento térmico ou indicar que o material não pertence ao grau especificado.</p>
 
@@ -199,7 +303,7 @@
 
     <!-- Microestrutura -->
     <section class="card">
-      <div class="card__cabeca"><h2>4 · Microestrutura esperada (metalografia)</h2><p class="legenda">O que a micrografia óptica deve confirmar</p></div>
+      <div class="card__cabeca"><h2>5 · Microestrutura esperada (metalografia)</h2><p class="legenda">O que a micrografia óptica deve confirmar</p></div>
       <div class="card__corpo">
         <p>No resfriamento lento, o aço-carbono tende a formar <strong>ferrita</strong>, <strong>perlita</strong> e, em teores maiores de carbono, <strong>cementita</strong>. O ponto eutetóide fica próximo de 0,77% C. A microestrutura observada deve fazer sentido com o carbono medido, com a dureza e com eventual tratamento térmico informado.</p>
         <div class="faixa-visual">
@@ -225,13 +329,13 @@
 
     <div class="guia-grade">
       <div class="guia-card">
-        <h3>5 · Dureza e resistência</h3>
+        <h3>6 · Dureza e resistência</h3>
         <p>A dureza mede a resistência à deformação localizada. Em aço-carbono, ela cresce com teor de carbono, fração de perlita, martensita e tratamento térmico. A aproximação abaixo ajuda a verificar coerência com a tração:</p>
         <p class="formula">σ<sub>UTS</sub> (MPa) ≈ 3,45 × HB</p>
         <p>Exemplo: 200 HB indica resistência à tração aproximada de 690 MPa. Diferenças grandes entre dureza e tração pedem reconferência de escala, corpo de prova, unidade, região ensaiada e tratamento térmico.</p>
       </div>
       <div class="guia-card">
-        <h3>6 · Tração</h3>
+        <h3>7 · Tração</h3>
         <p>O ensaio de tração mostra como o material suporta carregamento progressivo até a ruptura.</p>
         <ul>
           <li><strong>Limite de escoamento:</strong> início da deformação permanente.</li>
@@ -241,7 +345,7 @@
         </ul>
       </div>
       <div class="guia-card">
-        <h3>7 · Impacto Charpy</h3>
+        <h3>8 · Impacto Charpy</h3>
         <p>O Charpy mede energia absorvida na fratura. É um indicador direto de tenacidade, especialmente importante quando a peça pode sofrer impacto, vibração, baixa temperatura ou concentração de tensões.</p>
         <ul>
           <li>Energia baixa sugere maior risco de fratura frágil.</li>
@@ -250,7 +354,7 @@
         </ul>
       </div>
       <div class="guia-card">
-        <h3>8 · Coerência entre ensaios</h3>
+        <h3>9 · Coerência entre ensaios</h3>
         <p>Um bom parecer não olha cada número isoladamente. O conjunto precisa contar a mesma história metalúrgica.</p>
         <ul>
           <li>C alto + dureza muito baixa: verificar tratamento térmico ou erro de lançamento.</li>
