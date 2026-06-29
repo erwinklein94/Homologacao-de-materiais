@@ -155,24 +155,6 @@
       <div class="card__corpo">
         <p>Esta galeria serve para treinar o olhar do fiscal e do analista. Em relatórios como os de ombreiras, a micrografia não deve ser tratada como uma imagem decorativa: ela confirma se a composição química, a dureza, a tração e o impacto fazem sentido para o tipo de material informado.</p>
 
-        <div class="micro-real">
-          <figure>
-            <img src="assets/micrografias/mib0048_figura2_micrografia_nucleo.png" alt="Micrografia óptica de núcleo e classificação das grafitas por software do laudo MIB-0048-26">
-            <figcaption>Exemplo real de laudo MIB: micrografia óptica de núcleo e classificação das grafitas por software.</figcaption>
-          </figure>
-          <div>
-            <span class="guia-pill guia-pill--escuro">Exemplo de ombreira</span>
-            <h3>Como ler a Figura 2 do laudo MIB-0048-26</h3>
-            <p>Neste exemplo, a peça apresenta composição típica de ferro fundido: C = 3,05%, Si = 2,89% e Mg = 0,026%. A micrografia mostra grafitas nodulares com matriz ferrítico-perlítica e ferrita concentrada ao redor das grafitas, formando o aspecto conhecido como <strong>“olho de boi”</strong>.</p>
-            <ul class="lista-tecnica">
-              <li><strong>Forma VI:</strong> grafita predominantemente nodular/esferoidal.</li>
-              <li><strong>Tamanho 5:</strong> classe de tamanho da grafita na classificação informada no laudo.</li>
-              <li><strong>Núcleo:</strong> região interna da peça; é importante comparar núcleo e superfície quando houver suspeita de variação por resfriamento.</li>
-              <li><strong>Coerência:</strong> dureza média de 190 HB, resistência de 561,8 MPa e impacto de 8 J devem ser avaliados junto com a matriz e a aplicação da ombreira.</li>
-            </ul>
-          </div>
-        </div>
-
         <div class="alerta-tecnico"><strong>Importante:</strong> as imagens didáticas abaixo são exemplos visuais para orientar a leitura. Elas não substituem a classificação formal feita pelo laboratório, que deve informar norma, ataque, aumento, escala, região analisada e critério de classificação.</div>
 
         <h3 class="subtitulo-guia">Exemplos de grafita e matriz em ferros fundidos</h3>
@@ -365,15 +347,240 @@
       </div>
     </div>
 
+    <!-- ===================== ROBUSTEZ DA ANÁLISE ===================== -->
+    <section class="painel-guia">
+      <div>
+        <span class="guia-pill">Rigor técnico</span>
+        <h2>O que torna a análise mais robusta</h2>
+        <p>As seções abaixo vão além do “passou ou reprovou”. Elas tratam da qualidade da evidência: de onde vem o laudo, quanta confiança o número merece, se a amostra representa a peça e quais checagens cruzadas sustentam o parecer. É essa camada que separa uma triagem frágil de uma homologação defensável.</p>
+      </div>
+      <div class="destaque-grid">
+        <div class="guia-kpi"><b>A</b><span>A fonte é confiável: laboratório, método e certificado.</span></div>
+        <div class="guia-kpi"><b>B</b><span>O número merece confiança: incerteza e decisão no limite.</span></div>
+        <div class="guia-kpi"><b>C</b><span>A amostra representa a peça: local, orientação e seção.</span></div>
+        <div class="guia-kpi"><b>D</b><span>Os ensaios se sustentam entre si: checagens cruzadas.</span></div>
+      </div>
+    </section>
+
+    <!-- Validade e rastreabilidade -->
+    <section class="card card--guia-destaque">
+      <div class="card__cabeca"><h2>10 · Validade, rastreabilidade e tipo de certificado</h2><p class="legenda">Antes de ler os números, valide a origem do laudo</p></div>
+      <div class="card__corpo">
+        <p>Uma análise robusta começa pela confiança na fonte. Um conjunto de resultados impecável perde força se vier de um laboratório sem competência demonstrada, sem método declarado ou de um certificado que sequer se refere ao lote entregue. Verifique a procedência do laudo <strong>antes</strong> de discutir cada valor.</p>
+
+        <div class="guia-grade guia-grade--dupla">
+          <div class="guia-card">
+            <h3>Competência do laboratório e dos métodos</h3>
+            <ul>
+              <li><strong>Acreditação ISO/IEC 17025:</strong> indica competência reconhecida do laboratório (no Brasil, via Cgcre/Inmetro). Laudo só interno ou sem acreditação pesa menos.</li>
+              <li><strong>Método por ensaio:</strong> cada resultado deve citar a norma/método usado (ex.: combustão para C e S, espectrometria por emissão óptica, dureza Brinell).</li>
+              <li><strong>Calibração e rastreabilidade metrológica:</strong> equipamentos calibrados com padrões rastreáveis; idealmente com a incerteza declarada.</li>
+              <li><strong>Edição da norma:</strong> a versão/ano da norma aplicada deve constar, pois limites e critérios mudam entre revisões.</li>
+            </ul>
+          </div>
+          <div class="guia-card">
+            <h3>Campos de rastreabilidade que o laudo deve trazer</h3>
+            <div class="mini-grid mini-grid--tres" style="margin-top:6px">
+              <div class="guia-card guia-card--compacto"><h3>Corrida / heat</h3><p>Identificação da corrida de fusão à qual a peça pertence.</p></div>
+              <div class="guia-card guia-card--compacto"><h3>Lote / peça</h3><p>Lote, número de série ou marcação que liga o laudo à peça física.</p></div>
+              <div class="guia-card guia-card--compacto"><h3>Amostra / CP</h3><p>Identificação e origem do corpo de prova ensaiado.</p></div>
+              <div class="guia-card guia-card--compacto"><h3>Condição</h3><p>Condição de fornecimento: bruto, normalizado, temperado e revenido, recozido.</p></div>
+              <div class="guia-card guia-card--compacto"><h3>Data / responsável</h3><p>Data dos ensaios e responsável técnico que assina o laudo.</p></div>
+              <div class="guia-card guia-card--compacto"><h3>Norma / edição</h3><p>Norma do produto e edição aplicadas na classificação.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="subtitulo-guia">Tipo de certificado segundo a EN 10204</h3>
+        <p>O tipo de certificado define <em>o quê</em> o documento garante. Para peças de responsabilidade, prefira certificados com resultados específicos sobre o produto entregue.</p>
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead><tr><th>Tipo</th><th>O que garante</th><th>Validação</th><th>Leitura para homologação</th></tr></thead>
+            <tbody>
+              <tr><td>2.1</td><td>Declaração de conformidade com o pedido, <strong>sem</strong> resultados de ensaio.</td><td>Fabricante.</td><td>Fraco como evidência técnica. Não comprova valores medidos.</td></tr>
+              <tr><td>2.2</td><td>Relatório de ensaio com resultados <strong>não específicos</strong> (ensaios de produção, não necessariamente do lote entregue).</td><td>Fabricante.</td><td>Indicativo, mas o resultado pode não ser da peça recebida.</td></tr>
+              <tr><td>3.1</td><td>Resultados de ensaios <strong>específicos sobre o produto entregue</strong>.</td><td>Inspetor do fabricante independente da fabricação.</td><td>Mínimo recomendado para peça de responsabilidade.</td></tr>
+              <tr><td>3.2</td><td>Ensaios específicos com validação <strong>conjunta</strong>.</td><td>Fabricante <em>e</em> representante do comprador ou inspetor designado.</td><td>Indicado quando criticidade ou contrato exigem testemunho independente.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="alerta-tecnico"><strong>Atenção:</strong> aceitar um certificado 2.1 ou 2.2 como se fosse 3.1 é um erro comum. Sem ensaio específico e rastreável ao lote entregue, a homologação fica apoiada em evidência genérica, ainda que os números pareçam bons.</div>
+      </div>
+    </section>
+
+    <!-- Incerteza e decisão no limite -->
+    <section class="card">
+      <div class="card__cabeca"><h2>11 · Incerteza de medição e decisão no limite</h2><p class="legenda">Por que um valor “exatamente no limite” não é automaticamente aprovado</p></div>
+      <div class="card__corpo">
+        <p>Todo resultado de ensaio carrega uma <strong>incerteza de medição</strong>. Por isso, um valor que cai bem no limite não deve ser tratado como aprovação ou reprovação automática: é preciso saber se o resultado, somado à sua incerteza, ainda fica do lado seguro. Idealmente o laudo informa o resultado com a incerteza expandida <em>U</em> (normalmente k = 2, cerca de 95% de confiança).</p>
+
+        <div class="faixa-visual">
+          <span class="fv-hipo">Aprovação clara</span>
+          <span class="fv-eut">Banda de guarda</span>
+          <span class="fv-hiper">Reprovação clara</span>
+        </div>
+        <p class="legenda" style="margin-top:-2px">Exemplo para um teto de impureza (quanto menor, melhor), como S &le; 0,030%.</p>
+
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead><tr><th>Situação (limite máximo)</th><th>Relação com o limite</th><th>Decisão robusta</th></tr></thead>
+            <tbody>
+              <tr><td>Aprovação clara</td><td class="num">resultado + U &le; limite</td><td>Conformidade demonstrada mesmo no pior caso da medição.</td></tr>
+              <tr><td>Zona de incerteza</td><td class="num">resultado &le; limite &lt; resultado + U</td><td>Banda de guarda: tratar como ressalva e considerar contraprova.</td></tr>
+              <tr><td>Provável não conformidade</td><td class="num">resultado &gt; limite &ge; resultado &minus; U</td><td>Reprovar conforme a regra de decisão ou pedir contraprova.</td></tr>
+              <tr><td>Reprovação clara</td><td class="num">resultado &minus; U &gt; limite</td><td>Não conformidade demonstrada com folga.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="guia-bloco">
+          <h3>Regra de decisão sugerida</h3>
+          <ul class="lista-tecnica">
+            <li>Defina e registre a <strong>regra de decisão</strong> antes da análise (a ISO/IEC 17025 trata disso): por exemplo, só aprovar quando o resultado mais a incerteza ficar dentro do limite (banda de guarda).</li>
+            <li>Para limites mínimos (quanto maior, melhor — como limite de escoamento), inverta a lógica: aprovação clara quando <code>resultado &minus; U &ge; limite</code>.</li>
+            <li>Resultados na banda de guarda não são “reprovados” nem “aprovados” de forma cega: são <strong>ressalva</strong> e pedem contraprova, novo corpo de prova ou parecer do especialista.</li>
+            <li>Se o laudo não traz a incerteza, registre isso como limitação e seja mais conservador perto dos limites.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Amostragem e representatividade -->
+    <section class="card">
+      <div class="card__cabeca"><h2>12 · Amostragem e representatividade da peça</h2><p class="legenda">Um número correto na amostra errada não vale para a peça</p></div>
+      <div class="card__corpo">
+        <p>A robustez da análise depende de a amostra representar a região que controla a aplicação. Resultados podem variar pela posição na peça, pela orientação do corpo de prova e pela espessura da seção. Por isso, o laudo deve deixar claro <strong>de onde</strong> e <strong>como</strong> os corpos de prova foram retirados.</p>
+
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead><tr><th>Decisão de amostragem</th><th>O que controla</th><th>Risco se ignorada</th></tr></thead>
+            <tbody>
+              <tr><td>Orientação do corpo de prova (longitudinal × transversal)</td><td>Alongamento e energia de impacto em produtos conformados; orientação do entalhe no Charpy.</td><td>Comparar valores de orientações diferentes e reprovar/aprovar por engano.</td></tr>
+              <tr><td>Região analisada (núcleo × superfície)</td><td>Efeito do resfriamento e gradiente de propriedades pela seção.</td><td>Avaliar só uma região quando a peça varia muito do núcleo à superfície.</td></tr>
+              <tr><td>Número de amostras</td><td>Cobertura da variação entre corridas e posições.</td><td>Uma amostra isolada não representa um lote grande ou heterogêneo.</td></tr>
+              <tr><td>Tipo de corpo de prova em ferro fundido</td><td>Quão próximo o CP reproduz a seção real da peça.</td><td>CP fundido em condição muito diferente da peça gera propriedade não representativa.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="guia-grade guia-grade--dupla" style="margin-top:18px">
+          <div class="guia-card">
+            <h3>Aço e forjados</h3>
+            <ul>
+              <li><strong>Orientação:</strong> a especificação define se o CP é longitudinal ou transversal; cada uma dá alongamento/impacto diferentes.</li>
+              <li><strong>Seção espessa:</strong> resfria mais devagar e pode ter grão mais grosseiro e menor resistência no núcleo.</li>
+              <li><strong>Tratamento térmico:</strong> a condição do CP deve ser a mesma da peça entregue.</li>
+            </ul>
+          </div>
+          <div class="guia-card">
+            <h3>Ferro fundido — sensibilidade de seção</h3>
+            <ul>
+              <li><strong>Bloco fundido separadamente</strong> (bloco Y / keel): padrão de referência das normas, mas pode não reproduzir seções muito espessas ou finas.</li>
+              <li><strong>Incorporado (cast-on)</strong> ou <strong>usinado da própria peça:</strong> representa melhor a seção real quando há dúvida.</li>
+              <li><strong>Seção fina pode coquilhar</strong> (carbonetos) e <strong>seção espessa</strong> tende a grafita mais grosseira e menor nodularidade.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="nota-fonte">Quando a peça tem seções muito diferentes, comparar núcleo e superfície — e exigir que o corpo de prova represente a seção crítica — evita aprovar um material que só atende em uma região.</p>
+      </div>
+    </section>
+
+    <!-- Checagens cruzadas e índices -->
+    <section class="card card--guia-destaque">
+      <div class="card__cabeca"><h2>13 · Checagens cruzadas e índices que reforçam o parecer</h2><p class="legenda">Ferramentas para confirmar coerência, não só registrar números</p></div>
+      <div class="card__corpo">
+        <p>A seção 9 lembrou que os ensaios precisam contar a mesma história. Aqui estão as checagens quantitativas e os cuidados que tornam essa verificação mais forte. Use cada índice como confirmação cruzada — nunca como substituto do ensaio real.</p>
+        <div class="guia-grade">
+          <div class="guia-card">
+            <h3>Dureza × tração</h3>
+            <p>Para aços-carbono e baixa liga, vale a estimativa:</p>
+            <p class="formula">σ<sub>UTS</sub> (MPa) &asymp; 3,45 × HB</p>
+            <p><strong>Cuidado:</strong> não se aplica a inox austenítico, material encruado nem a ferros fundidos, que têm correlação própria. É checagem de coerência, não medição.</p>
+          </div>
+          <div class="guia-card">
+            <h3>Carbono equivalente de soldabilidade (CEV)</h3>
+            <p>Para aço, ajuda a antecipar risco de trinca a frio na solda (fórmula IIW):</p>
+            <p class="formula">CEV = C + Mn/6 + (Cr+Mo+V)/5 + (Ni+Cu)/15</p>
+            <ul>
+              <li><strong>&le; 0,40:</strong> boa soldabilidade.</li>
+              <li><strong>0,40 – 0,60:</strong> exige controle de preaquecimento e aporte.</li>
+              <li><strong>&gt; 0,60:</strong> soldabilidade difícil, cuidados maiores.</li>
+            </ul>
+            <p class="nota-fonte" style="margin-top:8px">Não confundir com o CE do ferro fundido (C + Si/3 + P/3), que mede tendência de grafitização.</p>
+          </div>
+          <div class="guia-card">
+            <h3>Réplicas e dispersão</h3>
+            <ul>
+              <li><strong>Impacto Charpy:</strong> normalmente um conjunto de 3 corpos de prova, com média e um mínimo individual exigido.</li>
+              <li><strong>Dureza:</strong> várias indentações; valor único é frágil.</li>
+              <li><strong>Repetibilidade × reprodutibilidade:</strong> dispersão grande entre réplicas é sinal de heterogeneidade ou problema de ensaio.</li>
+            </ul>
+          </div>
+          <div class="guia-card">
+            <h3>Temperatura e transição dúctil-frágil</h3>
+            <ul>
+              <li>O Charpy só faz sentido com a <strong>temperatura de ensaio declarada</strong>.</li>
+              <li>A energia absorvida cai com a temperatura (transição dúctil-frágil).</li>
+              <li>Peças que operam a frio precisam de energia garantida na <strong>menor temperatura de serviço</strong>.</li>
+            </ul>
+          </div>
+          <div class="guia-card">
+            <h3>Parâmetros obrigatórios da metalografia</h3>
+            <ul>
+              <li><strong>Ataque, aumento, escala e região</strong> sempre informados.</li>
+              <li><strong>Norma de classificação:</strong> grafita (ISO 945-1 / ASTM A247), inclusões (ASTM E45), tamanho de grão (ASTM E112).</li>
+              <li><strong>Nodularidade e contagem de nódulos</strong> por método declarado (inclusive análise de imagem).</li>
+            </ul>
+          </div>
+          <div class="guia-card">
+            <h3>Conversão de dureza e unidades</h3>
+            <ul>
+              <li>Converter entre HB, HV e HRC (ASTM E140) é <strong>aproximado</strong> e acumula erro.</li>
+              <li>Prefira ensaiar na <strong>escala exigida</strong> pela especificação.</li>
+              <li>Atenção às unidades: 1 kgf/mm² &asymp; 9,81 MPa ao comparar MPa, kgf/mm² e ksi.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erros comuns -->
+    <section class="card">
+      <div class="card__cabeca"><h2>14 · Erros comuns que enfraquecem a análise</h2><p class="legenda">Armadilhas que levam a aprovar ou reprovar por engano</p></div>
+      <div class="card__corpo">
+        <p>Boa parte das falhas de homologação não vem de um número ruim, e sim de uma leitura frágil de números bons. Os pontos abaixo concentram os deslizes mais frequentes e como evitá-los.</p>
+        <div class="tabela-wrap">
+          <table class="tabela">
+            <thead><tr><th>Erro</th><th>Por que enfraquece</th><th>Como evitar</th></tr></thead>
+            <tbody>
+              <tr><td>Comparar o valor com o limite ignorando a incerteza</td><td>Pode aprovar/reprovar indevidamente perto do limite.</td><td>Aplicar a banda de guarda (resultado &plusmn; U) e regra de decisão.</td></tr>
+              <tr><td>Aceitar certificado 2.1/2.2 como se fosse 3.1</td><td>O resultado pode não ser do lote entregue.</td><td>Exigir ensaio específico e rastreável para peça de responsabilidade.</td></tr>
+              <tr><td>Ler um único corpo de prova de impacto</td><td>Sem média nem mínimo individual, o resultado é instável.</td><td>Usar o conjunto de corpos de prova previsto na norma.</td></tr>
+              <tr><td>Charpy sem temperatura de ensaio</td><td>Energia sem referência não é comparável.</td><td>Registrar a temperatura e a condição de serviço.</td></tr>
+              <tr><td>Tratar conversão de dureza como medição</td><td>Erro acumulado entre escalas.</td><td>Ensaiar na escala exigida; converter só como apoio.</td></tr>
+              <tr><td>Micrografia sem norma, ataque, aumento, escala e região</td><td>Classificação não rastreável nem reprodutível.</td><td>Exigir todos os parâmetros e a norma de classificação.</td></tr>
+              <tr><td>Ler ferro fundido como “aço com carbono alto”</td><td>Reprovação indevida de material fundido.</td><td>Acima de 2,11% C, avaliar grafita, matriz, Mg e CE.</td></tr>
+              <tr><td>Aplicar σ &asymp; 3,45 × HB a inox, encruado ou ferro fundido</td><td>Correlação inválida fora de aço-carbono/baixa liga.</td><td>Usar a correlação adequada ou só o ensaio de tração.</td></tr>
+              <tr><td>Avaliar só núcleo (ou só superfície) em seção variável</td><td>Perde o gradiente de propriedades da peça.</td><td>Comparar regiões e representar a seção crítica.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <!-- Checklist -->
     <section class="card">
       <div class="card__cabeca"><h2>Checklist de decisão para homologação</h2><p class="legenda">Perguntas que evitam aprovação apressada</p></div>
       <div class="card__corpo">
         <div class="checklist">
           <label><input type="checkbox"> O laudo identifica material, lote, corrida, fornecedor, data e laboratório?</label>
+          <label><input type="checkbox"> O laboratório é acreditado (ISO/IEC 17025) e o tipo de certificado (EN 10204 3.1/3.2) é adequado à criticidade da peça?</label>
           <label><input type="checkbox"> Os métodos de ensaio estão informados, inclusive C* e S* por via combustão?</label>
+          <label><input type="checkbox"> Os resultados perto dos limites foram avaliados considerando a incerteza de medição (banda de guarda)?</label>
           <label><input type="checkbox"> A composição química bate com a especificação exigida para a peça?</label>
           <label><input type="checkbox"> P e S estão baixos e coerentes com o nível de qualidade esperado?</label>
+          <label><input type="checkbox"> A orientação, a região e o número de corpos de prova representam a seção crítica da peça?</label>
+          <label><input type="checkbox"> O impacto Charpy traz conjunto de corpos de prova e temperatura de ensaio declarada?</label>
           <label><input type="checkbox"> A microestrutura observada é coerente com o teor de carbono e tratamento térmico?</label>
           <label><input type="checkbox"> Se C &gt; 2,11%, o laudo foi tratado como ferro fundido e não como aço comum?</label>
           <label><input type="checkbox"> Para ferro fundido, foram informados tipo de grafita, matriz, nodularidade/vermicularidade quando aplicável, Mg residual e carbonetos livres?</label>
@@ -409,9 +616,14 @@
       <div class="card__corpo">
         <ul class="lista-tecnica">
           <li>Especificação técnica, desenho, memorial ou requisito contratual da peça homologada — sempre deve prevalecer sobre faixas genéricas.</li>
+          <li>ISO/IEC 17025 para competência do laboratório e regra de decisão considerando incerteza de medição.</li>
+          <li>EN 10204 para o tipo de certificado de inspeção (2.1, 2.2, 3.1, 3.2) exigido conforme a criticidade.</li>
           <li>Normas de análise química do laboratório, especialmente métodos por combustão para carbono e enxofre.</li>
           <li>ASTM E45 para avaliação de inclusões não metálicas e ASTM E112 para tamanho de grão.</li>
+          <li>ISO 945-1 e ASTM A247 para classificação da forma, tamanho e distribuição da grafita em ferros fundidos.</li>
+          <li>ASTM A370 e ISO 148-1 para tração e impacto Charpy, incluindo corpos de prova, orientação e temperatura de ensaio.</li>
           <li>ASTM E140 e tabelas equivalentes para conversão aproximada entre dureza e resistência mecânica.</li>
+          <li>Carbono equivalente IIW (CEV) para avaliação de soldabilidade de aços.</li>
           <li>Literatura de metalurgia física dos aços-carbono, baixa liga e ferros fundidos: diagrama Fe–C, grafita, ferrita, perlita, cementita, martensita, bainita, nodularização, vermicularização e efeitos de elementos de liga.</li>
         </ul>
         <p class="nota-fonte">Este guia é apoio técnico interno. A decisão final de homologação deve considerar norma aplicável, histórico do fornecedor, criticidade da peça, rastreabilidade e análise do especialista responsável.</p>

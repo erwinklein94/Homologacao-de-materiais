@@ -484,54 +484,6 @@ p { margin: 0 0 .8em; }
 /* =====================================================================
    GALERIA DE MICROGRAFIAS - GUIA TECNICO
    ===================================================================== */
-.guia-pill--escuro {
-  background: rgba(0,56,101,.08);
-  color: var(--rumo-azul);
-  border-color: rgba(0,56,101,.18);
-}
-.micro-real {
-  display: grid;
-  grid-template-columns: minmax(320px, 1.05fr) minmax(280px, .95fr);
-  gap: 18px;
-  align-items: stretch;
-  margin: 6px 0 18px;
-  padding: 14px;
-  border-radius: var(--rumo-raio);
-  background: linear-gradient(135deg, rgba(0,56,101,.04), rgba(30,159,127,.06));
-  border: 1px solid var(--rumo-cinza-200);
-}
-.micro-real figure {
-  margin: 0;
-  background: #fff;
-  border: 1px solid var(--rumo-cinza-200);
-  border-radius: var(--rumo-raio-sm);
-  overflow: hidden;
-  box-shadow: 0 10px 24px rgba(0,0,0,.06);
-}
-.micro-real figure img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  max-height: 360px;
-  object-fit: cover;
-  object-position: top center;
-}
-.micro-real figcaption {
-  padding: 10px 12px;
-  font-size: 12.5px;
-  color: var(--rumo-texto-claro);
-  border-top: 1px solid var(--rumo-cinza-100);
-  background: var(--rumo-cinza-50);
-}
-.micro-real h3 {
-  margin: 8px 0 8px;
-  color: var(--rumo-azul);
-  font-size: 19px;
-}
-.micro-real p {
-  color: var(--rumo-texto);
-  line-height: 1.58;
-}
 .micro-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -600,10 +552,6 @@ p { margin: 0 0 .8em; }
 @media (max-width: 1120px) {
   .micro-grid,
   .micro-grid--compacta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 860px) {
-  .micro-real { grid-template-columns: 1fr; }
-  .micro-real figure img { max-height: none; }
 }
 @media (max-width: 540px) {
   .micro-grid,
