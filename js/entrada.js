@@ -127,7 +127,7 @@
 
   var EXEMPLO = {
     identificacao: { amostra: "Ombreira mod. exemplo — lote 2451", fornecedor: "Fornecedor exemplo", laudo: "LAB-2026-0098", data: "" },
-    quimica: { C: "0.45", Mn: "0.85", Si: "0.25", P: "0.022", S: "0.030", Cr: "", Ni: "", Cu: "" },
+    quimica: { C: "0.45", Si: "0.25", Mn: "0.85", P: "0.022", S: "0.030", Cr: "0.12", Ni: "0.08", Mo: "", V: "", Ti: "", Cu: "0.10", Al: "0.025", Mg: "", Fe: "98.9" },
     microestrutura: { observada: "Ferrita + Perlita", grao: "7", inclusoes: "1.2", descarbonetacao: "0.05" },
     dureza: { hb: "185" },
     tracao: { LE: "320", LR: "650", AL: "18", RA: "38" },
