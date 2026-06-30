@@ -557,3 +557,84 @@ p { margin: 0 0 .8em; }
   .micro-grid,
   .micro-grid--compacta { grid-template-columns: 1fr; }
 }
+
+/* =====================================================================
+   DASHBOARD v2 — Scorecard, mapa de seções, tooltips e impressão
+   (reaproveita os tokens da marca; azul dominante, verde/amarelo de apoio)
+   ===================================================================== */
+.dash-scorecard { display: grid; grid-template-columns: 1fr 1fr 1.15fr; gap: 18px; margin-bottom: 22px; }
+.score-card {
+  background:#fff; border:1px solid var(--rumo-cinza-200); border-radius: var(--rumo-raio);
+  box-shadow: var(--rumo-sombra); overflow:hidden; display:flex; flex-direction:column; min-width:0;
+}
+.score-card--destaque { border-top: 4px solid var(--rumo-verde); }
+.score-card__head {
+  padding: 15px 18px 10px; border-bottom: 1px solid var(--rumo-cinza-100);
+  background: linear-gradient(180deg, rgba(0,56,101,.035), transparent);
+}
+.score-card__head h2 { font-size: 16px; margin: 0 0 3px; }
+.score-card__head p { margin:0; color: var(--rumo-texto-claro); font-size: 12.5px; line-height: 1.4; }
+.score-card__body { padding: 8px 14px 14px; flex:1; min-width:0; }
+
+/* Mapa de seções (HTML, não canvas) */
+.mapa-secoes { display:flex; flex-direction:column; gap: 8px; padding: 6px 2px 2px; }
+.mapa-linha {
+  display:grid; grid-template-columns: 14px 1.05fr 70px auto; align-items:center; gap: 11px;
+  padding: 9px 11px; border-radius: 11px; background: var(--rumo-cinza-50); border:1px solid var(--rumo-cinza-100);
+}
+.mapa-dot { width: 12px; height: 12px; border-radius: 50%; box-shadow: 0 0 0 3px rgba(0,0,0,.04); }
+.mapa-nome { font-size: 13px; font-weight: 700; color: var(--rumo-azul); line-height: 1.15; }
+.mapa-nome small { display:block; font-weight: 400; font-size: 10.5px; color: var(--rumo-texto-claro); margin-top:1px; }
+.mapa-mini { height: 7px; border-radius: 999px; background: var(--rumo-cinza-200); overflow: hidden; }
+.mapa-mini i { display:block; height: 100%; border-radius: 999px; transition: width .5s ease; }
+.mapa-contagem { display:flex; gap: 5px; justify-content:flex-end; }
+.mapa-pill { font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 999px; letter-spacing: .3px; white-space: nowrap; }
+.pill-ok { background: rgba(30,159,127,.12); color: var(--rumo-verde); }
+.pill-at { background: rgba(251,211,0,.20); color:#6b5600; }
+.pill-er { background: rgba(216,69,69,.12); color: var(--rumo-erro); }
+.pill-na { background: var(--rumo-cinza-100); color: var(--rumo-texto-claro); }
+
+/* Legenda de gráficos em chips */
+.chart-legenda { display:flex; flex-wrap:wrap; gap: 6px 16px; padding: 2px 18px 12px; }
+.chart-legenda span { display:inline-flex; align-items:center; gap: 6px; font-size: 11.5px; color: var(--rumo-texto); }
+.chart-legenda i { width: 11px; height: 11px; border-radius: 3px; display:inline-block; }
+
+/* Tooltip flutuante dos gráficos */
+.dash-tooltip {
+  position: fixed; z-index: 80; pointer-events:none; max-width: 270px;
+  background: var(--rumo-azul-noite); color:#fff; border-radius: 10px; padding: 9px 11px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.30); font-size: 12px; line-height: 1.45;
+}
+.dash-tooltip b { display:block; font-size: 12.5px; margin-bottom: 3px; color: var(--rumo-verde-claro); }
+.dash-tooltip span { display:block; color: rgba(255,255,255,.85); }
+
+/* Índice em destaque dentro do hero */
+.dash-hero__dir { display:flex; align-items:center; gap: 16px; }
+.dash-hero__indice { text-align:right; color:#fff; }
+.dash-hero__indice b { display:block; font-family: var(--fonte-dados); font-size: 30px; line-height:1; color: var(--rumo-verde-claro); }
+.dash-hero__indice span { font-size: 10.5px; text-transform:uppercase; letter-spacing:.6px; color: rgba(255,255,255,.82); }
+
+/* Polimento + micro-animação de entrada */
+.score-card, .chart-card { animation: dashUp .42s ease both; }
+@keyframes dashUp { from { opacity:0; transform: translateY(9px); } to { opacity:1; transform:none; } }
+.chart-card { transition: box-shadow .18s ease, transform .18s ease; }
+.chart-card:hover { box-shadow: var(--rumo-sombra-hover); transform: translateY(-2px); }
+.chart-canvas { cursor: crosshair; }
+
+@media (max-width: 980px) {
+  .dash-scorecard { grid-template-columns: 1fr; }
+}
+
+/* Impressão / salvar PDF */
+@media print {
+  .topo, .rodape, .nav, .dash-acoes, .acoes { display: none !important; }
+  body { background:#fff; }
+  .pagina { max-width: none; padding: 0 8px; }
+  .card, .score-card, .chart-card, .dash-hero, .dash-insights, .dash-kpi {
+    box-shadow: none !important; animation: none !important; break-inside: avoid;
+  }
+  .chart-card:hover { transform: none; }
+  .dash-scorecard { grid-template-columns: 1fr 1fr; }
+  .dash-hero { clip-path: none; color:#000; background:#fff !important; border:1px solid var(--rumo-cinza-200); }
+  .dash-hero .eyebrow, .dash-hero h2, .dash-hero p, .dash-hero__indice b, .dash-hero__indice span { color:#000 !important; }
+}
